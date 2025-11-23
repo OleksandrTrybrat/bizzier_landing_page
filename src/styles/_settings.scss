@@ -1,9 +1,8 @@
 @use 'variables' as *;
 
 body {
-  // font-family: 'Martel Sans', 'Pippins', 'Open Sans Condensed', sans-serif;
-  font-family: 'Martel Sans', sans-serif;
-  color: $colorGrayDark;
+  font-family: 'DM Sans', sans-serif;
+  // color: $colorGrayDark;
   font-size: $baseFontSize;
 }
 
@@ -12,7 +11,7 @@ body {
   display: flex; /* потрібен код, щоб надалі можна було прикріпити футер донизу */
   flex-direction: column; /* потрібен код, щоб надалі можна було прикріпити футер донизу */
   min-height: 100%; /* обгортка займатиме щонайменше всю висоту вікна браузера */
-  background-color: $colorBackgroundPage;
+  // background-color: $colorBackgroundPage;
 
   > .main {
     flex: 1 1 auto; /* притискає футер донизу */

@@ -17,6 +17,7 @@ a:where([class]) {
 
 a,
 a:visited {
+  color: inherit; /* Успадковує колір тексту */
   text-decoration: none;
 }
 
@@ -31,17 +32,24 @@ a:focus,
 a:active {
   outline: none;
 }
+// ! ?
+// :focus-visible {
+//   outline: 3px solid var(--color-focus, #3b82f6); /* Задайте чіткий індикатор фокусу */
+//   outline-offset: 2px;
+// }
 
-nav,
-footer,
-header,
-aside {
-  display: block;
-}
+// /* Видаляємо outline лише у разі наявності альтернативи */
+// :focus:not(:focus-visible) {
+//   outline: none;
+// }
+// ! ?
 
 html {
   height: 100%;
   scrollbar-gutter: stable;
+  font-size: 16px;
+
+  // font-size: 62.5%; // 1rem = 10px, якщо потрібно спростити обчислення
 
   /* Плавне прокручування */
   // scroll-behavior: smooth;scroll-behavior
@@ -57,17 +65,12 @@ body {
   width: 100%;
   line-height: 1.5;
   margin: 0;
+  -webkit-font-smoothing: antialiased; /* Покращує відображення шрифтів у Chrome/Safari */
 
-  /* font-size: 100%; */
-
-  /* font-size: 16px; */
-
-  /* Забороняє самовільне збільшення шрифту на iPhone */
-
+  /* ! Забороняє самовільне збільшення шрифту на iPhone */
   /* -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; */
-
   /* Забороняє самовільне збільшення шрифту на iPhone */
 }
 
@@ -80,7 +83,10 @@ select {
   font-family: inherit;
 }
 
+button,
 input::-ms-clear {
+  border: 0;
+  padding: 0;
   display: none;
 } /* Прибирає хрестик у полі вводу в Microsoft IE */
 
@@ -98,11 +104,12 @@ ul li {
 }
 
 img,
+svg,
+picture,
 video {
   display: block;
-  // max-width: 100%;
-
-  /* height: auto; */
+  max-width: 100%;
+  height: auto;
 
   /* vertical-align: top; */
 }

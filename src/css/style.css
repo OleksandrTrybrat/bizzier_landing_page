@@ -1,0 +1,318 @@
+@charset "UTF-8";
+/* =======================RESET====================== */
+/* Нормалізація блочної моделі */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* Нормалізація висоти елемента посилання при його інспектуванні в DevTools */
+a:where([class]) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+a,
+a:visited {
+  color: inherit; /* Успадковує колір тексту */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Змінює підрахунок ширини блоку для спрощення обчислення розмірів */
+:focus,
+:active,
+a:focus,
+a:active {
+  outline: none;
+}
+
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+  font-size: 16px;
+  /* Плавне прокручування */
+}
+html :has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-font-smoothing: antialiased; /* Покращує відображення шрифтів у Chrome/Safari */
+  /* ! Забороняє самовільне збільшення шрифту на iPhone */
+  /* -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; */
+  /* Забороняє самовільне збільшення шрифту на iPhone */
+}
+
+/* Успадковуємо властивості шрифту для полів введення */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  font-family: inherit;
+}
+
+button,
+input::-ms-clear {
+  border: 0;
+  padding: 0;
+  display: none;
+} /* Прибирає хрестик у полі вводу в Microsoft IE */
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+} /* Прибирає відступи у кнопок у Mozilla */
+ul li {
+  list-style: none;
+}
+
+img,
+svg,
+picture,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  /* vertical-align: top; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/* Прибираємо внутрішні відступи зліва для тегів списків, які мають атрибут class */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/* Прибираємо зовнішні відступи для body та двох інших тегів, які мають атрибут class */
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/* Прибираємо зовнішні вертикальні відступи у потрібних тегів, які мають атрибут class */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Прибираємо стандартний маркер у маркованого списку, який має атрибут class */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/* Обнуляємо вертикальні зовнішні відступи параграфа */
+p {
+  margin-block: 0;
+}
+
+/* Зовнішній відступ вниз для параграфа без атрибута class */
+/* Курсор-рука при наведенні на елемент */
+button,
+label {
+  cursor: pointer;
+}
+
+/* Приводимо до одного кольору svg-елементи */
+[fill] {
+  fill: currentcolor;
+}
+
+[stroke] {
+  stroke: currentcolor;
+}
+
+/* Виправляємо баг із затримкою зміни кольору при взаємодії з svg-елементами */
+svg * {
+  -webkit-transition-property: fill, stroke;
+  transition-property: fill, stroke;
+}
+
+/* Видаляємо всі анімації та переходи для людей, які віддають перевагу їх не використовувати */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* =============================/RESET=================================== */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DMSans-Regular.woff2") format("woff2"), url("../fonts/DMSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DMSans-SemiBold.woff2") format("woff2"), url("../fonts/DMSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DMSans-Bold.woff2") format("woff2"), url("../fonts/DMSans-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+.container {
+  max-width: calc(1440px + 15px * 2);
+  margin-inline: auto;
+  padding-inline: 15px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: calc(768px - 0.02px)) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.wrapper {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; /* потрібен код, щоб надалі можна було прикріпити футер донизу */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; /* потрібен код, щоб надалі можна було прикріпити футер донизу */
+  min-height: 100%; /* обгортка займатиме щонайменше всю висоту вікна браузера */
+}
+.wrapper > .main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto; /* притискає футер донизу */
+  margin-top: 97px;
+}
+
+[class*=__container] {
+  /* селектор атрибута */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px; /* (відступи безпеки, щоб вміст не притискався до країв сторінки); при додаванні відступу в 15px у min-width додаємо 30px, і значення буде не 1250px, а 1280px */
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+}
+.header__burger-btn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  -webkit-box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.08);
+          box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+}
+.header__burger-btn span {
+  position: absolute;
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  top: 48%;
+  right: 25%;
+  z-index: 5;
+  -webkit-transition: opacity 0.5s, background-color 0.5s, -webkit-transform 0.5s;
+  transition: opacity 0.5s, background-color 0.5s, -webkit-transform 0.5s;
+  transition: transform 0.5s, opacity 0.5s, background-color 0.5s;
+  transition: transform 0.5s, opacity 0.5s, background-color 0.5s, -webkit-transform 0.5s;
+}
+.header__burger-btn span:nth-child(1) {
+  -webkit-transform: translateY(-11px);
+      -ms-transform: translateY(-11px);
+          transform: translateY(-11px);
+}
+.header__burger-btn span:nth-child(3) {
+  -webkit-transform: translateY(11px);
+      -ms-transform: translateY(11px);
+          transform: translateY(11px);
+}
+
+.header.open .header__burger-btn span:nth-child(1) {
+  -webkit-transform: translateY(0) rotate(45deg);
+      -ms-transform: translateY(0) rotate(45deg);
+          transform: translateY(0) rotate(45deg);
+}
+
+.header.open .header__burger-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .header__burger-btn span:nth-child(3) {
+  -webkit-transform: translateY(0) rotate(-45deg);
+      -ms-transform: translateY(0) rotate(-45deg);
+          transform: translateY(0) rotate(-45deg);
+}/*# sourceMappingURL=style.css.map */

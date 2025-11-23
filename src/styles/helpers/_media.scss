@@ -1,67 +1,45 @@
 @use './functions' as *;
 
-$laptop: 1440.98;
-$tablet: 1023.98;
-$mobile: 767.98;
-$mobile-s: 480.98;
+// ==========================================================
+// 1. ТОЧКИ ПЕРЕХОДУ (Чисті значення Max-Width)
+// ==========================================================
+$bp-desktop: 1440;
+$bp-laptop: 1024;
+$bp-tablet: 768;
+$bp-mobile-l: 480;
+$bp-mobile-s: 320;
 
-@mixin laptop-above {
-  @media (width > rem($laptop)) {
+// ==========================================================
+// 2. УНІВЕРСАЛЬНІ МІКСИНИ ДЛЯ MEDIA QUERIES
+// ==========================================================
+
+// Підхід "Desktop First": Стилі застосовуються для екранів ДО вказаного розміру (включно)
+@mixin media-down($breakpoint) {
+  @media (max-width: calc(#{$breakpoint}px - 0.02px)) {
     @content;
   }
 }
 
-@mixin laptop {
-  @media (width <= rem($laptop)) {
+// Підхід "Mobile First": Стилі застосовуються для екранів ВІД вказаного розміру
+@mixin media-up($breakpoint) {
+  @media (min-width: $breakpoint) {
     @content;
   }
 }
 
-@mixin tablet-above {
-  @media (width > rem($tablet)) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (width <= rem($tablet)) {
-    @content;
-  }
-}
-
-@mixin mobile-above {
-  @media (width > rem($mobile)) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media (width <= rem($mobile)) {
-    @content;
-  }
-}
-
-@mixin mobile-s-above {
-  @media (width > rem($mobile-s)) {
-    @content;
-  }
-}
-
-@mixin mobile-s {
-  @media (width <= rem($mobile-s)) {
-    @content;
-  }
-}
-
-@mixin hover($hasActiveEffectOnMobile: true) {
-  // ховер для устройст без тачскрина
+// ==========================================================
+// 3. МІКСИН ДЛЯ ЕФЕКТУ HOVER/АКТИВНОГО СТАНУ
+// ==========================================================
+@mixin hover-only-desktop($includeTouchActive: true) {
+  // Наведення для десктопів
   @media (any-hover: hover) {
     &:hover {
       @content;
     }
   }
-  //  ховер для тачскринов
-  @if ($hasActiveEffectOnMobile) {
+
+  // Активне натискання для сенсорних екранів (можна вимкнути)
+  @if $includeTouchActive {
     @media (any-hover: none) {
       &:active {
         @content;

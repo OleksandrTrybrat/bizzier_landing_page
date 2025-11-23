@@ -2,94 +2,109 @@
 @use 'variables' as *;
 
 .container {
-  max-width: calc(($containerWidth) + ($containerPaddingX) * 2);
+  // Використовуємо calc для обчислення максимальної ширини з відступами
+  max-width: calc(#{$containerWidth} + #{$containerPaddingX} * 2);
   margin-inline: auto;
-  padding-inline: ($containerPaddingX);
+  padding-inline: $containerPaddingX;
 }
 
 .visually-hidden {
+  // Міксин для приховування елемента, доступного скрінрідерам
   @include visually-hidden;
 }
 
+// Приховує елемент на мобільних пристроях (max-width: 768px)
 .hidden-mobile {
-  @include mobile {
+  // Використовуємо універсальний міксин media-down з точкою $bp-tablet (768px)
+  @include media-down($bp-tablet) {
     display: none !important;
   }
 }
 
+// Показує елемент тільки на мобільних пристроях (до max-width: 768px)
 .visible-mobile {
-  @include mobile-above {
+  // Використовуємо універсальний міксин media-up з точкою $bp-tablet (768px)
+  // Тобто приховуємо елемент для всіх екранів ВІД 768px і більше
+  @include media-up($bp-tablet) {
     display: none !important;
   }
 }
 
 // .full-vw-line {
-//   position: relative;position
+//   position: relative;
 
+//   // Базові стилі для обох псевдоелементів
 //   &::before,
 //   &::after {
-//     position: absolute;position
-//     width: calc(
-//       (var(--100vw) - var(--container-width)) / 2
-//     );width
-//     height: rem(1);height
-//     background-color: var(--color-dark-15);background-color
+//     content: '';
+//     position: absolute;
+//     height: rem(1);
+//     background-color: var(--color-dark-15);
+
+//     // Обчислення ширини лінії: (VW - Container) / 2
+//     width: calc((var(--100vw) - var(--container-width)) / 2);
 //   }
 
+//   // --- МОДИФІКАТОРИ НАПРЯМКУ ЛІНІЇ ---
+
+//   // Лінія над елементом
 //   &--top {
 //     &::before {
-//       content: '';content
-//       bottom: 100%;bottom
+//       bottom: 100%; // Над елементом
+//       // Використовуємо ::before для лівої лінії
+//       right: 100%; // Висувається ліворуч
+//     }
+//     &::after {
+//         bottom: 100%;
+//         left: 100%; // Висувається праворуч
 //     }
 //   }
 
+//   // Лінія під елементом
 //   &--bottom {
-//     &::after {
-//       content: '';content
-//       top: 100%;top
+//     &::before {
+//       top: 100%; // Під елементом
+//       right: 100%; // Висувається ліворуч
 //     }
-//   }
-
-//   &--left {
-//     &::before,
 //     &::after {
-//       right: 100%;right
-//     }
-//   }
-
-//   &--right {
-//     &::before,
-//     &::after {
-//       left: 100%;left
+//         top: 100%;
+//         left: 100%; // Висувається праворуч
 //     }
 //   }
 // }
 
 // .circle-icon {
-//   --circleSize: #{rem(52)};
-//   --circleMarginLeft: #{rem(20)};
+//   // Визначення змінних у корені
+//   --icon-size: #{rem(52)};       // Розмір самого кола
+//   --icon-margin-left: #{rem(20)}; // Відступ між текстом і колом
 
-//   position: relative;position
-//   min-height: var(--circleSize);min-height
-//   padding-right: calc(var(--circleSize) + var(--circleMarginLeft));padding-right
+//   position: relative;
+//   min-height: var(--icon-size);
 
+//   // Динамічний відступ: розмір кола + відступ = місце для іконки
+//   padding-right: calc(var(--icon-size) + var(--icon-margin-left));
+
+//   // Адаптація розмірів
 //   @include laptop {
-//     --circleSize: #{rem(44)};
-//     --circleMarginLeft: #{rem(14)};
+//     --icon-size: #{rem(44)};
+//     --icon-margin-left: #{rem(14)};
 //   }
 
 //   @include mobile {
-//     --circleSize: #{rem(40)};
+//     --icon-size: #{rem(40)};
 //   }
 
 //   &::after {
-//     @include square(var(--circleSize));
-//     @include abs-y;
-//     content: '';content
-//     right: 0;right
+//     // Стилі для самої круглої іконки
+//     @include square(var(--icon-size)); // Використовуємо міксин square
+//     @include abs-y;                    // Вертикальне центрування
+//     content: '';
+//     right: 0; // Прив'язка до правого краю
+
 //     background:
 //       url('../../icons/arrow-top-right_black.svg') center no-repeat
-//       var(--color-accent);background
-//     border-radius: 50%;border-radius
+//       var(--color-accent); // Фон: іконка + акцентний колір
+
+//     border-radius: 50%;
 //   }
 // }
