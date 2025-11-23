@@ -1,0 +1,25 @@
+@use 'helpers' as *;
+
+$containerWidth: 1440px;
+$containerPaddingX: 15px;
+
+// Базовий розмір шрифту
+$baseFontSize: rem(16);
+$fontSizeTitle: rem(40);
+$fontSizeSubTitle: rem(24);
+$fontSizeSmallText: rem(18);
+
+// COLOR
+// primary
+$orange-500: #f44817;
+$orange-400: #fff4f2;
+$purple-600: #4f54c8;
+$purple-500: #b8bbfd;
+$purple-400: #edefff;
+// neutral
+$black-500: #222;
+$black-400: #656565;
+$black-300: #aaa;
+$white: #fff;
+
+$transitionDuration: 0.2s;

@@ -1,0 +1,95 @@
+@use 'helpers' as *;
+@use 'variables' as *;
+
+.container {
+  max-width: calc(($containerWidth) + ($containerPaddingX) * 2);
+  margin-inline: auto;
+  padding-inline: ($containerPaddingX);
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.hidden-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.visible-mobile {
+  @include mobile-above {
+    display: none !important;
+  }
+}
+
+// .full-vw-line {
+//   position: relative;position
+
+//   &::before,
+//   &::after {
+//     position: absolute;position
+//     width: calc(
+//       (var(--100vw) - var(--container-width)) / 2
+//     );width
+//     height: rem(1);height
+//     background-color: var(--color-dark-15);background-color
+//   }
+
+//   &--top {
+//     &::before {
+//       content: '';content
+//       bottom: 100%;bottom
+//     }
+//   }
+
+//   &--bottom {
+//     &::after {
+//       content: '';content
+//       top: 100%;top
+//     }
+//   }
+
+//   &--left {
+//     &::before,
+//     &::after {
+//       right: 100%;right
+//     }
+//   }
+
+//   &--right {
+//     &::before,
+//     &::after {
+//       left: 100%;left
+//     }
+//   }
+// }
+
+// .circle-icon {
+//   --circleSize: #{rem(52)};
+//   --circleMarginLeft: #{rem(20)};
+
+//   position: relative;position
+//   min-height: var(--circleSize);min-height
+//   padding-right: calc(var(--circleSize) + var(--circleMarginLeft));padding-right
+
+//   @include laptop {
+//     --circleSize: #{rem(44)};
+//     --circleMarginLeft: #{rem(14)};
+//   }
+
+//   @include mobile {
+//     --circleSize: #{rem(40)};
+//   }
+
+//   &::after {
+//     @include square(var(--circleSize));
+//     @include abs-y;
+//     content: '';content
+//     right: 0;right
+//     background:
+//       url('../../icons/arrow-top-right_black.svg') center no-repeat
+//       var(--color-accent);background
+//     border-radius: 50%;border-radius
+//   }
+// }
