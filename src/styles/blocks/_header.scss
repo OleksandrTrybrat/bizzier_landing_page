@@ -5,7 +5,8 @@
 .header {
   position: fixed;
   width: 100%;
-  height: rem(53);
+  // height: rem(53);
+  padding-top: 24px;
   background-color: $white;
   z-index: 100;
 
@@ -15,15 +16,13 @@
 
   &__body {
     height: 100%;
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
 
   // .header__logo
   &__logo {
-    // flex: 0 1 350px;
+    flex: 1 0 auto;
   }
 
   // .header__logo-image
@@ -32,6 +31,7 @@
 
   // .header__menu
   &__menu {
+    flex: 1 0 auto;
   }
 
   // .header__button
@@ -55,6 +55,7 @@
   &__list {
     display: flex;
     align-items: center;
+    flex: 0 1 400px;
   }
 
   // .menu__item
@@ -68,6 +69,9 @@
 
   // .menu__link
   &__link {
+    color: $black-400;
+    font-weight: 400;
+    line-height: 1.6;
   }
 }
 
