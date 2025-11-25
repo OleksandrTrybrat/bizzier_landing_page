@@ -12,37 +12,49 @@
         <div class="header__content container">
           <div class="header__body">
             <div class="header__logo">
-              <a href="#" class="header__logo-image">
+              <a
+                href="#"
+                class="header__logo-image"
+                aria-label="Home"
+                title="Home"
+              >
                 <img
                   src="./image/logo.svg"
                   alt="Logo"
                   width="100"
                   height="28"
+                  loading="lazy"
                 />
               </a>
             </div>
             <div class="header__menu">
-              <nav class="menu__body">
-                <ul class="menu__list">
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">Home</a>
+              <nav class="header__menu-body">
+                <ul class="header__menu-list">
+                  <li class="header__menu-item">
+                    <a href="#" class="header__menu-link">Home</a>
                   </li>
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">About</a>
+                  <li class="header__menu-item">
+                    <a href="#" class="header__menu-link">About</a>
                   </li>
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">Services</a>
+                  <li class="header__menu-item">
+                    <a href="#" class="header__menu-link">Services</a>
                   </li>
-                  <li class="menu__item">
-                    <a href="#" class="menu__link">Pricing</a>
+                  <li class="header__menu-item">
+                    <a href="#" class="header__menu-link">Pricing</a>
                   </li>
                 </ul>
               </nav>
+              <a href="#" class="header__button-link btn btn-orange">
+                Try For Free
+              </a>
             </div>
-            <div class="header__button btn btn-orange">
-              <a href="#">Try For Free</a>
-            </div>
-            <button class="header__burger-btn" id="burger">
+            <button
+              class="header__burger-btn visible-mobile"
+              id="burger"
+              type="button"
+              aria-label="Open menu"
+              title="Open menu"
+            >
               <span></span>
               <span></span>
               <span></span>
