@@ -5,9 +5,30 @@
 .header {
   position: fixed;
   width: 100%;
-  padding-top: 24px;
+  padding-top: rem(24);
+  padding-bottom: rem(24);
   background-color: $white;
   z-index: 100;
+
+  // transition: box-shadow $transitionDuration ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    backdrop-filter 0.3s ease-in-out;
+
+  // Встановлюємо backdrop-filter в "none" за замовчуванням
+  backdrop-filter: none;
+
+  &.scrolled {
+    // Тінь, яка з'являється при прокручуванні
+    // box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.4);
+    // Напівпрозорий фон
+    background-color: rgba(255, 255, 255, 0.85);
+    // Включаємо ефект розмиття
+    backdrop-filter: blur(5px);
+
+    // Можна додати легку тінь для контрасту, якщо потрібно
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
 
   &__content {
     height: 100%;
@@ -52,10 +73,9 @@
     }
   }
   // .header__menu-link
-  &__menu-link {
-    font-weight: 400;
-    line-height: 1.6;
-  }
+  // &__menu-link {
+  //   // line-height: 1.6;
+  // }
 
   // .header__button
   &__button-link {
@@ -99,7 +119,6 @@
       position: absolute;
       top: 0;
       left: 100%;
-      // right: 0;
       flex-direction: column;
       justify-content: center;
       background-color: $white;
@@ -124,6 +143,12 @@
     &.open .header__menu {
       transform: translateX(-100%);
     }
+  }
+}
+@include media-down($bp-tablet) {
+  .header {
+    padding-top: rem(16);
+    padding-bottom: rem(16);
   }
 }
 .header.open .header__burger-btn span:nth-child(1) {
