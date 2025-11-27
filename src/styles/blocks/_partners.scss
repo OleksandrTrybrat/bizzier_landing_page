@@ -23,10 +23,6 @@
     width: auto;
   }
 
-  // .partners__connecting-desc
-  &__connecting-desc {
-  }
-
   // .partners__partnership
   &__partnership {
     display: flex;
@@ -69,18 +65,12 @@
   &__progress {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
-    // grid-column: 3 / 4;
-    // grid-row: 1 / 4;
   }
 
   &__progress-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-  // .partners__progress-item
-  &__progress-item {
   }
 
   .progress {
@@ -145,17 +135,6 @@
         width: 60%;
       }
     }
-    // @include media-down($bp-mobile-s) {
-    //   &__buttons {
-    //     gap: rem(16);
-    //     height: rem(50);
-    //   }
-    //   &__buttons-link {
-    //     &:nth-child(1) {
-    //       width: 160px;
-    //     }
-    //   }
-    // }
   }
 }
 
