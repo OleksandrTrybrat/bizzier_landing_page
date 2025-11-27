@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use './helpers' as *;
 
 body {
   font-family: 'DM Sans', sans-serif;
@@ -18,7 +19,15 @@ body {
   > .main {
     flex: 1 1 auto; /* притискає футер донизу */
     margin-top: 97px;
+
+    @include media-down($bp-mobile-s) {
+      margin-top: 65px;
+    }
   }
+}
+
+section {
+  margin-bottom: rem(160);
 }
 
 // .main {

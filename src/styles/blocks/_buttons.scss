@@ -2,6 +2,7 @@
 @use '../variables' as *;
 
 .btn {
+  @include fluid-text(16, 14);
   padding: rem(16) rem(24);
   border-radius: $borderRadius-8;
   line-height: 1.3;
