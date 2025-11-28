@@ -1,3 +1,5 @@
+@use 'helpers' as *;
+
 /* =======================RESET====================== */
 
 /* Нормалізація блочної моделі */
@@ -33,15 +35,15 @@ a:active {
   outline: none;
 }
 // ! ?
-// :focus-visible {
-//   outline: 3px solid var(--color-focus, #3b82f6); /* Задайте чіткий індикатор фокусу */
-//   outline-offset: 2px;
-// }
+:focus-visible {
+  // outline: 3px solid var(--color-focus, #3b82f6); /* Задаємо чіткий індикатор фокусу */
+  outline-offset: 2px;
+}
 
-// /* Видаляємо outline лише у разі наявності альтернативи */
-// :focus:not(:focus-visible) {
-//   outline: none;
-// }
+/* Видаляємо outline лише у разі наявності альтернативи */
+:focus:not(:focus-visible) {
+  outline: none;
+}
 // ! ?
 
 html {
@@ -50,7 +52,6 @@ html {
   font-size: 16px;
 
   // font-size: 62.5%; // 1rem = 10px, якщо потрібно спростити обчислення
-
   /* Плавне прокручування */
   // scroll-behavior: smooth;scroll-behavior
 
@@ -98,6 +99,22 @@ button::-moz-focus-inner {
   padding: 0;
   border: 0;
 } /* Прибирає відступи у кнопок у Mozilla */
+
+// Стилі для аксесабіліті кнопки бургер
+a,
+button {
+  &[aria-label] {
+    position: relative;
+
+    &::before {
+      @include abs-center;
+      @include size(rem(44));
+      z-index: 999;
+
+      content: '';
+    }
+  }
+}
 
 ul li {
   list-style: none;

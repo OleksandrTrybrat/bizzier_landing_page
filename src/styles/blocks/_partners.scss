@@ -11,8 +11,8 @@
     grid-template-columns: 0.87fr 0.91fr;
     grid-template-rows: auto auto;
     justify-content: space-between;
-    gap: clamp(rem(80), 14vw, rem(200)) // Vertical/Row Gap (200px -> 80px)
-      clamp(rem(40), 7vw, rem(130)); // Horizontal/Column Gap (100px -> 40px)
+    gap: clamp(rem(80), 14vw, rem(170)) // Vertical/Row Gap (200px -> 80px)
+      clamp(rem(40), 7vw, rem(100)); // Horizontal/Column Gap (100px -> 40px)
   }
 
   // .partners__connecting
@@ -70,6 +70,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
   }
 
   .progress {
@@ -105,6 +106,9 @@
     &__progress {
       order: 3;
       flex: 0 0 100%;
+    }
+    &__progress-box {
+      justify-content: space-around;
     }
     &__banner {
       display: flex;
