@@ -1,3 +1,70 @@
 @use '../helpers' as *;
 @use '../utils' as *;
 @use '../variables' as *;
+
+.services {
+  // .services__body
+  &__body {
+  }
+
+  // .services__header
+  &__header {
+    text-align: center;
+  }
+
+  // .services__subtitle
+  &__subtitle {
+    display: inline-block;
+    padding: rem(4) rem(12);
+    margin-bottom: rem(20);
+  }
+
+  // .services__title
+  &__title {
+    margin-bottom: rem(16);
+  }
+
+  // .services__text
+  &__text {
+    margin-bottom: rem(56);
+  }
+
+  // .services__cards
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 40px 40px;
+  }
+
+  // .services__card
+  &__card {
+    display: flex;
+    align-items: flex-start;
+    // width: 650px;
+    gap: 40px;
+    padding: 32px;
+  }
+
+  // .services__card-image
+  &__card-image {
+    flex: 0 1 rem(245);
+  }
+
+  // .services__card-desc
+  &__card-desc {
+    flex: 0 1 rem(300);
+  }
+
+  // .services__card-title
+  &__card-title {
+  }
+
+  // .services__card-text
+  &__card-text {
+  }
+
+  // .services__card-link
+  &__card-link {
+  }
+}

@@ -1,9 +1,0 @@
-@use '../helpers' as *;
-@use '../variables' as *;
-
-.blue__title {
-  @include fluid-text(16, 12);
-  background-color: $purple-400;
-  color: $purple-600;
-  border-radius: $borderRadius-24;
-}
