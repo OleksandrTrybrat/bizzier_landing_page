@@ -3,25 +3,9 @@
 @use '../variables' as *;
 
 .value {
-  // .value__body
-  &__body {
-  }
-
   // .value__header
   &__header {
     text-align: center;
-  }
-
-  // .value__subtitle
-  &__subtitle {
-  }
-
-  // .value__title
-  &__title {
-  }
-
-  // .value__text
-  &__text {
   }
 
   // .value__content
@@ -174,9 +158,6 @@
   .value__content {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(5, auto);
-    // $row-gap-responsive: rem(40);
-    // $col-gap-responsive: rem(40);
-    // gap: $row-gap-responsive $col-gap-responsive;
   }
 
   .value__item {
