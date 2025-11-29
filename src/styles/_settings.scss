@@ -20,6 +20,9 @@ body {
     flex: 1 1 auto; /* притискає футер донизу */
     margin-top: 97px;
 
+    @include media-down($bp-tablet) {
+      margin-top: 75px;
+    }
     @include media-down($bp-mobile-s) {
       margin-top: 65px;
     }

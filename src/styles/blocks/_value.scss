@@ -100,10 +100,6 @@
     line-height: 1.3;
     margin-bottom: rem(10);
   }
-
-  // .item__text
-  &__text {
-  }
 }
 @include media-down($bp-laptop) {
   .value__content {
