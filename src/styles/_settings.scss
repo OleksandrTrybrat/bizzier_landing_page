@@ -28,6 +28,14 @@ body {
 
 section {
   margin-bottom: rem(160);
+
+  @include media-down($bp-laptop) {
+    margin-bottom: rem(100);
+  }
+
+  @include media-down($bp-mobile-l) {
+    margin-bottom: rem(50);
+  }
 }
 
 // .main {

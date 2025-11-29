@@ -3,10 +3,6 @@
 @use '../variables' as *;
 
 .services {
-  // .services__body
-  &__body {
-  }
-
   // .services__header
   &__header {
     text-align: center;
@@ -15,7 +11,6 @@
   // .services__subtitle
   &__subtitle {
     display: inline-block;
-    padding: rem(4) rem(12);
     margin-bottom: rem(20);
   }
 
@@ -26,7 +21,7 @@
 
   // .services__text
   &__text {
-    margin-bottom: rem(56);
+    // margin-bottom: rem(56);
   }
 
   // .services__cards
@@ -45,6 +40,19 @@
     padding: rem(32);
     border-radius: $borderRadius-16;
     background-color: $orange-400;
+    transition: $transitionDuration;
+
+    @include hover-only-desktop {
+      background-color: $purple-400;
+      &__card-link {
+        color: $white;
+        background: $purple-600;
+      }
+      .btn-purple {
+        color: $white;
+        background: $purple-600;
+      }
+    }
   }
 
   // .services__card-image
@@ -63,10 +71,6 @@
   // .services__card-title
   &__card-title {
     margin-bottom: rem(12);
-  }
-
-  // .services__card-text
-  &__card-text {
   }
 
   // .services__card-link
@@ -107,6 +111,15 @@
       gap: rem(18) rem(18);
     }
 
+    &__card {
+      @include hover-only-desktop {
+        .btn-purple {
+          color: $purple-600;
+          background: transparent;
+        }
+      }
+    }
+
     .btn.btn-mobile {
       padding: rem(12) rem(18);
     }
@@ -115,6 +128,18 @@
       font-weight: 600;
       color: $orange-500;
       border: none;
+    }
+  }
+
+  @include media-down(397) {
+    &__card {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: rem(28) rem(24) rem(16) rem(24);
+    }
+    &__text {
+      margin-bottom: rem(30);
     }
   }
 }
