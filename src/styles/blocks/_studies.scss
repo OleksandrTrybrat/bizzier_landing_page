@@ -1,0 +1,93 @@
+@use '../helpers' as *;
+@use '../utils' as *;
+@use '../variables' as *;
+
+.studies {
+  // .studies__body
+  &__body {
+  }
+
+  // .studies__header
+  &__header {
+  }
+
+  // .studies__subtitle
+  &__subtitle {
+  }
+
+  // .studies__title
+  &__title {
+  }
+
+  // .studies__text
+  &__text {
+  }
+
+  // .studies__cards
+  &__cards {
+  }
+
+  // .studies__card
+  &__card {
+  }
+
+  // .studies__card-image
+  &__card-image {
+  }
+
+  // .studies__card-desc
+  &__card-desc {
+  }
+
+  // .studies__card-title
+  &__card-title {
+  }
+
+  // .studies__card-text
+  &__card-text {
+  }
+
+  // .studies__card-details
+  &__card-details {
+  }
+
+  // .studies__card-items
+  &__card-items {
+  }
+
+  // .studies__card-item
+  &__card-item {
+  }
+
+  // .studies__card-link
+  &__card-link {
+  }
+
+  // .studies__pagination
+  &__pagination {
+  }
+}
+
+.pagination {
+  // .pagination__controls
+  &__controls {
+  }
+  // .pagination__arrow
+  &__arrow {
+  }
+  // .pagination__numbers
+  &__numbers {
+  }
+}
+
+.page {
+  // .page__number
+  &__number {
+  }
+}
+
+.active-card {
+}
+
+.active {
+}
