@@ -1166,4 +1166,62 @@ section {
   .value__item {
     gap: 20px;
   }
+}
+.studies {
+  background-color: #fff4f2;
+  padding: 5rem;
+}
+.studies__header {
+  text-align: center;
+}
+.studies__cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 2.625rem;
+}
+.studies__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2.5rem;
+  width: calc(1340px - 10rem);
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.studies__card-image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 247px;
+          flex: 0 1 247px;
+}
+.studies__card-desc {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 830px;
+          flex: 0 1 830px;
+}
+.studies__card-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.studies__card-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

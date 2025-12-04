@@ -3,12 +3,15 @@
 @use '../variables' as *;
 
 .studies {
+  background-color: $orange-400;
+  padding: rem(80);
   // .studies__body
   &__body {
   }
 
   // .studies__header
   &__header {
+    text-align: center;
   }
 
   // .studies__subtitle
@@ -25,18 +28,35 @@
 
   // .studies__cards
   &__cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: rem(42);
   }
 
   // .studies__card
   &__card {
+    $innerPaddingCard: rem(160);
+    display: flex;
+    align-items: center;
+    gap: rem(40);
+    // width: 1180px;
+    width: calc($containerWidth - $innerPaddingCard);
+    padding: rem(32);
+    background-color: $white;
+    border-radius: $borderRadius-16;
   }
 
   // .studies__card-image
   &__card-image {
+    flex: 0 1 247px;
   }
 
   // .studies__card-desc
   &__card-desc {
+    align-self: flex-start;
+    flex: 0 1 830px;
   }
 
   // .studies__card-title
@@ -49,10 +69,12 @@
 
   // .studies__card-details
   &__card-details {
+    display: flex;
   }
 
   // .studies__card-items
   &__card-items {
+    display: flex;
   }
 
   // .studies__card-item
