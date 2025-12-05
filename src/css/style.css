@@ -775,6 +775,7 @@ section {
   .services__card:hover .btn-purple {
     color: #ffffff;
     background: #4f54c8;
+    border: none;
   }
 }
 @media (any-hover: none) {
@@ -788,6 +789,7 @@ section {
   .services__card:active .btn-purple {
     color: #ffffff;
     background: #4f54c8;
+    border: none;
   }
 }
 .services__card-image {
@@ -1171,6 +1173,21 @@ section {
   background-color: #fff4f2;
   padding: 5rem;
 }
+@media (max-width: calc(1024px - 0.02px)) {
+  .studies {
+    padding: 3.75rem;
+  }
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .studies {
+    padding: 2.5rem;
+  }
+}
+@media (max-width: calc(480px - 0.02px)) {
+  .studies {
+    padding: 1.25rem;
+  }
+}
 .studies__header {
   text-align: center;
 }
@@ -1189,6 +1206,12 @@ section {
       -ms-flex-align: center;
           align-items: center;
   row-gap: 2.625rem;
+  margin-bottom: 3.5rem;
+}
+@media (max-width: calc(921px - 0.02px)) {
+  .studies__cards {
+    row-gap: 2rem;
+  }
 }
 .studies__card {
   display: -webkit-box;
@@ -1198,30 +1221,214 @@ section {
       -ms-flex-align: center;
           align-items: center;
   gap: 2.5rem;
-  width: calc(1340px - 10rem);
+  max-width: calc(1340px - 10rem);
   padding: 2rem;
   background-color: #ffffff;
   border-radius: 1rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@media (any-hover: hover) {
+  .studies__card:hover {
+    background-color: #edefff;
+  }
+  .studies__card:hover__card-link {
+    color: #ffffff;
+    background: #4f54c8;
+  }
+  .studies__card:hover .btn-purple {
+    color: #ffffff;
+    background: #4f54c8;
+    border: none;
+  }
+}
+@media (any-hover: none) {
+  .studies__card:active {
+    background-color: #edefff;
+  }
+  .studies__card:active__card-link {
+    color: #ffffff;
+    background: #4f54c8;
+  }
+  .studies__card:active .btn-purple {
+    color: #ffffff;
+    background: #4f54c8;
+    border: none;
+  }
+}
+@media (max-width: calc(921px - 0.02px)) {
+  .studies__card {
+    gap: 1.25rem;
+    padding: 1rem;
+  }
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .studies__card {
+    padding: 1.75rem 2rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (max-width: calc(480px - 0.02px)) {
+  .studies__card {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+  }
 }
 .studies__card-image {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 247px;
-          flex: 0 1 247px;
+      -ms-flex: 0 1 15.4375rem;
+          flex: 0 1 15.4375rem;
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .studies__card-image {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+  }
 }
 .studies__card-desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-item-align: start;
       align-self: flex-start;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 830px;
-          flex: 0 1 830px;
+      -ms-flex: 0 1 51.875rem;
+          flex: 0 1 51.875rem;
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .studies__card-desc {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+  }
+}
+.studies__card-title {
+  margin-bottom: 0.75rem;
+}
+.studies__card-text {
+  margin-bottom: clamp(1.5rem, 5vw, 6rem);
 }
 .studies__card-details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media (max-width: calc(612px - 0.02px)) {
+  .studies__card-details {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 2rem;
+  }
 }
 .studies__card-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+.studies__card-item {
+  color: #222222;
+  font-size: clamp(1.125rem, 1.0294117647rem + 0.3921568627vw, 1.5rem);
+  line-height: 1.3;
+  margin-right: 1.5rem;
+}
+.studies__card-item p:nth-child(2) {
+  color: #656565;
+  font-size: clamp(0.75rem, 0.7181372549rem + 0.1307189542vw, 0.875rem);
+  line-height: 1.4;
+}
+
+.pagination__controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.5rem;
+}
+@media (max-width: calc(480px - 0.02px)) {
+  .pagination__controls {
+    gap: 0.75rem;
+  }
+}
+.pagination__arrow {
+  fill: #aaaaaa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 3.125rem;
+  height: 3.125rem;
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+}
+.pagination__arrow .arrow__active path {
+  fill: #aaaaaa;
+}
+@media (max-width: calc(480px - 0.02px)) {
+  .pagination__arrow {
+    width: 2.625rem;
+    height: 2.625rem;
+  }
+}
+.pagination__numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  gap: 1rem;
+}
+@media (max-width: calc(480px - 0.02px)) {
+  .pagination__numbers {
+    gap: 0.625rem;
+  }
+}
+
+.page__number {
+  font-size: clamp(1rem, 0.9681372549rem + 0.1307189542vw, 1.125rem);
+  line-height: 1.3;
+  color: #aaaaaa;
+  background-color: #ffffff;
+  padding: 0.875rem 1.375rem;
+  border-radius: 0.5rem;
+}
+.page__number.active {
+  color: #ffffff;
+  background-color: #f44817;
+}
+@media (max-width: calc(480px - 0.02px)) {
+  .page__number {
+    min-width: 2.625rem;
+    padding: 0.625rem 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */
