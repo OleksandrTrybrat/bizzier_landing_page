@@ -12,7 +12,9 @@ export class CardPagination {
     this.nextArrow = document.querySelector(nextArrowSelector);
     this.btnNumbers = document.querySelectorAll(btnNumbersSelector);
     this.currentPage = 1;
-    this.itemsPerPage = 3;
+    this.itemsPerPage = 3; // встановлення 3 карт на сторінку
+    // Рахуємо клількість сторінок: (Всього карт / карт на сторінці).
+    // Приклад: 9 / 3 = 3 сторінки.
     this.totalPages = Math.ceil(this.cards.length / this.itemsPerPage);
     if (this.cards.length > 0) {
       this.init();
@@ -30,10 +32,14 @@ export class CardPagination {
   };
 
   updateCards = () => {
+    // 1. Вираховуємо діапазон індексів для поточної сторінки
+    // Для стр 1: start = 0, end = 3 (покаже індекси 0, 1, 2)
+    // Для стр 2: start = 3, end = 6 (покаже індекси 3, 4, 5)
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
 
     this.cards.forEach((card, index) => {
+      // Якщо індекс карти потрапляє в діапазон - показуємо, інакше ховаємо
       if (index >= startIndex && index < endIndex) {
         card.classList.remove('hidden');
       } else {

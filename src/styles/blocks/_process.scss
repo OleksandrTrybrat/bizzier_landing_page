@@ -1,0 +1,75 @@
+@use '../helpers' as *;
+@use '../utils' as *;
+@use '../variables' as *;
+
+.process {
+  // .process__cards
+  &__cards {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+  }
+
+  // .process__card
+  &__card {
+  }
+}
+
+.card {
+  // .card__image
+  &__image {
+  }
+  // .card__title
+  &__title {
+  }
+  // .card__text
+  &__text {
+  }
+}
+.line {
+  .separator-line {
+    // Налаштування товщини, кольору та інтервалу лінії
+    $color: #aeb4ff; // Колір лінії
+    $thickness: 6px; // Товщина лінії (висота SVG на десктопі)
+    $dash-size: 15px; // Довжина одного штриха (риски)
+    $gap-size: 20px; // Відстань між штрихами
+
+    display: block; // Встановлюємо display: block для коректної поведінки SVG
+
+    // --- СТИЛІ ДЛЯ ЛІНІЙ (Застосовуються до обох <line> елементів) ---
+    line {
+      stroke: $color; // Застосовуємо колір
+      stroke-width: $thickness; // Застосовуємо товщину
+      stroke-linecap: round; // Ключове властивість: робимо краї штрихів закругленими
+      stroke-dasharray: $dash-size $gap-size; // Встановлюємо довжину штриха та інтервалу
+    }
+
+    // --- ДЕСКТОП (Горизонтальне відображення за замовчуванням) ---
+    width: 100%; // Контейнер розтягується на всю ширину
+    height: $thickness; // Висота контейнера дорівнює товщині лінії
+
+    .line-horizontal {
+      display: block; // Показуємо горизонтальну лінію
+    }
+    .line-vertical {
+      display: none; // Приховуємо вертикальну лінію
+    }
+
+    // --- МОБІЛЬНІ (Адаптивне відображення, вертикальна лінія) ---
+    @include media-down($bp-mobile-l) {
+      // Медіа-запит для мобільних пристроїв (Ваш брейкпоінт)
+      // Змінюємо розміри самого контейнера SVG, "перевертаючи" їх
+      width: $thickness; // Ширина контейнера стає товщиною лінії
+      height: 150px; // Задаємо необхідну довжину вертикальної лінії
+      margin: 0 auto; // Центруємо вертикальну лінію по горизонталі
+
+      // Перемикаємо видимість ліній
+      .line-horizontal {
+        display: none; // Приховуємо горизонтальну
+      }
+      .line-vertical {
+        display: block; // Показуємо вертикальну
+      }
+    }
+  }
+}
