@@ -1410,7 +1410,7 @@ section {
   border-radius: 1.5rem;
 }
 .pagination__arrow .arrow__active path {
-  fill: #aaaaaa;
+  fill: #222222;
 }
 @media (max-width: calc(480px - 0.02px)) {
   .pagination__arrow {

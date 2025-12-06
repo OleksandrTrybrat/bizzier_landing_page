@@ -175,7 +175,7 @@
     border-radius: $borderRadius-24;
 
     .arrow__active path {
-      fill: $black-300;
+      fill: $black-500;
     }
 
     @include media-down($bp-mobile-l) {
@@ -216,7 +216,4 @@
       padding: rem(10) rem(16);
     }
   }
-}
-
-.active-card {
 }
