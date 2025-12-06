@@ -47,6 +47,13 @@
     background-color: $white;
     border-radius: $borderRadius-16;
     transition: $transitionDuration;
+    // !
+    &.hidden {
+      display: none !important;
+    }
+
+    animation: fadeEffect 0.5s;
+    // !
 
     @include hover-only-desktop {
       background-color: $purple-400;
@@ -72,6 +79,14 @@
     }
     @include media-down($bp-mobile-l) {
       padding: rem(16) rem(24) rem(24) rem(24);
+    }
+  }
+  @keyframes fadeEffect {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 
@@ -187,6 +202,7 @@
     line-height: 1.3;
     color: $black-300;
     background-color: $white;
+    @include size(rem(50));
     padding: rem(14) rem(22);
     border-radius: $borderRadius-8;
 

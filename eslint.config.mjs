@@ -1,8 +1,8 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import { defineConfig } from 'eslint/config'
-import prettierPlugin from 'eslint-plugin-prettier'
-import prettierConfig from 'eslint-config-prettier'
+import js from '@eslint/js';
+import globals from 'globals';
+import { defineConfig } from 'eslint/config';
+import prettierPlugin from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier';
 
 export default defineConfig([
   {
@@ -18,10 +18,16 @@ export default defineConfig([
       eqeqeq: 'warn',
       curly: 'warn',
       'no-else-return': 'warn',
+      'prettier/prettier': [
+        'error',
+        {
+          semi: true, // Убедитесь, что здесь 'true'
+        },
+      ],
     },
   },
   {
     files: ['**/*.{js,mjs,cjs}'],
     languageOptions: { globals: globals.browser },
   },
-])
+]);

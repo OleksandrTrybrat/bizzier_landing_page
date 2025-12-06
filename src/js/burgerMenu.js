@@ -1,18 +1,18 @@
-'use strict'
+'use strict';
 
 export class BurgerMenu {
   constructor(burgerSelector, headerSelector) {
-    this.burger = document.querySelector(burgerSelector)
-    this.header = document.querySelector(headerSelector)
-    this.init()
+    this.burger = document.querySelector(burgerSelector);
+    this.header = document.querySelector(headerSelector);
+    this.init();
   }
 
   init() {
     if (!this.burger || !this.header) {
-      return
+      return;
     }
     this.burger.addEventListener('click', () => {
-      this.header.classList.toggle('open')
-    })
+      this.header.classList.toggle('open');
+    });
   }
 }
