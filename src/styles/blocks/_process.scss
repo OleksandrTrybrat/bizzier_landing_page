@@ -47,14 +47,10 @@
       align-items: flex-start;
       justify-items: flex-start;
       gap: 0;
-
       // align-items: center;
       // justify-content: space-between;
       // gap: clamp(rem(32), 4vw, rem(100));
-      background-image: url('../image/process/lineY.png');
-      background-attachment: fixed;
-      background-position: left 11% top 10%;
-      background-repeat: repeat-y;
+
     }
     &__desc {
       display: flex;
@@ -66,7 +62,6 @@
       // align-items: center;
       text-align: left;
       width: 100%;
-      margin-bottom: 50px;
     }
 
     // &__line {
