@@ -10,23 +10,12 @@
 
   // .process__cards
   &__cards {
-    background: url('../image/process/lineX.png') 50% 35% no-repeat;
-    // position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // gap: rem(100);
     gap: clamp(rem(32), 4vw, rem(100));
   }
   &__line {
-    // width: 100%;
-
-    // position: absolute;
-    // top: 35%;
-    // left: 50%;
-    // translate: -50% -45%;
-    // width: calc(100% - rem(260));
-    // transform: rotate(90deg);
   }
 
   // .process__card
@@ -35,26 +24,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: calc((100% - rem(260)) / 4);
-    z-index: 10;
   }
 
   @include media-down($bp-laptop) {
     &__cards {
-      // background: url('../image/process/lineY.png') 50% 35% / cover no-repeat;
-
       flex-direction: column;
       align-items: flex-start;
       justify-items: flex-start;
       gap: 0;
-      // align-items: center;
-      // justify-content: space-between;
-      // gap: clamp(rem(32), 4vw, rem(100));
-
-    }
-    &__desc {
-      display: flex;
-      flex-direction: column;
     }
     &__card {
       display: flex;
