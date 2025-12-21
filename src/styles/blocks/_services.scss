@@ -3,11 +3,6 @@
 @use '../variables' as *;
 
 .services {
-  // .services__header
-  &__header {
-    text-align: center;
-  }
-
   // .services__subtitle
   &__subtitle {
     display: inline-block;
@@ -71,6 +66,7 @@
 
   // .services__card-title
   &__card-title {
+    font-weight: 600;
     margin-bottom: rem(12);
   }
 

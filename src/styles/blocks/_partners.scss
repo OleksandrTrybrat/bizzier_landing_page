@@ -86,6 +86,9 @@
       @include fluid-text(16, 10);
     }
   }
+  .number-weight {
+    font-weight: 600;
+  }
   // .partners__banner
   &__banner {
     grid-column: 2 / 3;
