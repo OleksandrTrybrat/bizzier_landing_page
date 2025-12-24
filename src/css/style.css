@@ -1596,20 +1596,65 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 2.5rem;
+}
+@media (max-width: calc(1024px - 0.02px)) {
+  .pricing__cards {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 1.875rem;
+  }
 }
 .pricing__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 33.333%;
+          flex: 0 1 33.333%;
   padding: 2rem;
+  background-color: #fff4f2;
   border-radius: 0.5rem;
 }
-
-.card__active {
+.pricing__card.card__active {
   background-color: #edefff;
+}
+@media (max-width: calc(1024px - 0.02px)) {
+  .pricing__card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 calc(50% - 1.875rem);
+            flex: 0 1 calc(50% - 1.875rem);
+  }
+}
+@media (max-width: calc(768px - 0.02px)) {
+  .pricing__card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
+  }
+}
+
+.card__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 .card__popular {
   display: -webkit-box;
@@ -1621,13 +1666,14 @@ section {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 2.1875rem;
+  margin-bottom: 2.5rem;
 }
-.card__img-popular {
+.card__img {
   display: block;
   padding: 0.625rem 0.75rem;
-  background-color: #4f54c8;
   border-radius: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 .card__btn-popular {
   display: inline-block;
@@ -1658,6 +1704,12 @@ section {
   background-color: #aaaaaa;
   margin-bottom: 1.5rem;
 }
+.card__list {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin-bottom: 2rem;
+}
 .card__list-items {
   color: #656565;
   font-size: clamp(0.75rem, 0.7181372549rem + 0.1307189542vw, 0.875rem);
@@ -1666,7 +1718,49 @@ section {
   background: url("/src/image/pricing/list_img-02.png") left 0px no-repeat;
   padding: 0px 0px 0px 2.125rem;
 }
+.card__button {
+  color: #ffffff;
+  margin-top: auto;
+}
+.card__button a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.img-popular {
+  background-color: #4f54c8;
+}
+
+.img-simply {
+  background-color: #f44817;
+  margin-bottom: 2.5rem;
+}
+
 .active-items {
   background: url("/src/image/pricing/list_img-01.png") left no-repeat;
   padding: 0px 0px 0px 2.125rem;
+}
+
+.button__popular {
+  background-color: #4f54c8;
+}
+.button__popular:hover {
+  background-color: #f44817;
+}
+
+.button__simply {
+  background-color: #f44817;
+}
+.button__simply:hover {
+  background-color: #4f54c8;
 }/*# sourceMappingURL=style.css.map */
