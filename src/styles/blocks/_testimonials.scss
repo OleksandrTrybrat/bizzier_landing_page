@@ -1,0 +1,232 @@
+@use '../helpers' as *;
+@use '../variables' as *;
+
+.testimonials {
+  &__title {
+    margin-bottom: rem(20);
+  }
+
+  &__subtitle {
+    @include fluid-text(40, 24);
+    color: $black-500;
+    font-weight: 600;
+    margin-bottom: rem(16);
+  }
+
+  @include media-down($bp-tablet) {
+    &__title {
+      text-align: center;
+      margin-bottom: rem(0);
+    }
+    &__subtitle {
+      margin-bottom: rem(12);
+    }
+  }
+
+  &__slider {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__slider-thumb {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: rem(40);
+    margin-bottom: rem(60);
+
+    @include media-down(919) {
+      flex-direction: column;
+      margin-bottom: rem(30);
+    }
+
+    @include media-down($bp-tablet) {
+      gap: rem(30);
+    }
+  }
+
+  &__left-top,
+  &__left-bottom {
+    flex: 0 1 rem(558);
+  }
+
+  &__right-top,
+  &__right-bottom {
+    flex: 0 1 rem(660);
+  }
+
+  &__right-bottom {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @include media-down(919) {
+    &__left-top,
+    &__left-bottom {
+      flex: 0 1 auto;
+    }
+
+    &__right-top,
+    &__right-bottom {
+      flex: 0 1 auto;
+    }
+
+    &__left-bottom {
+      order: 2;
+      position: absolute;
+      top: 100%;
+      right: calc(50% - 40px);
+    }
+    &__right-bottom {
+      order: 1;
+      position: absolute;
+      top: 80%;
+      right: 0;
+    }
+  }
+  @include media-down($bp-tablet) {
+    &__left-top {
+      text-align: center;
+    }
+  }
+
+  @include media-down($bp-mobile-s) {
+    &__left-bottom {
+      right: 35%;
+    }
+    &__right-bottom {
+      top: 84%;
+    }
+  }
+
+  &__text {
+    color: $black-400;
+    @include fluid-text(16, 14);
+  }
+
+  &__desc {
+    color: $black-500;
+    @include fluid-text(24, 15);
+    margin-bottom: rem(40);
+    text-align: justify;
+
+    @include media-down($bp-tablet) {
+      text-align: center;
+    }
+  }
+
+  &__numbers-avatar {
+    display: flex;
+    align-items: center;
+    img {
+      @include size(rem(52));
+      margin-right: rem(28);
+      border-radius: 50%;
+
+      @include media-down($bp-mobile-l) {
+        @include size(rem(38));
+        margin-right: rem(16);
+      }
+    }
+  }
+
+  &__slider-pagination {
+    position: absolute;
+    bottom: 65px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 10;
+
+    @include media-down(919) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      flex-direction: column;
+    }
+  }
+
+  &__arrows {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(10);
+    pointer-events: auto;
+    z-index: 15;
+
+    @include media-down(919) {
+      order: 2;
+      // flex-direction: column;
+    }
+
+    &__numbers-slider {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      pointer-events: auto;
+      z-index: 15;
+
+      @include media-down(919) {
+        order: 1;
+        margin-top: rem(20);
+      }
+    }
+
+    &__pagination {
+      font-size: rem(24);
+      font-weight: 600;
+      text-align: right;
+    }
+  }
+
+  .arrow__pagination {
+    @include size(rem(40));
+    border: 1px solid $black-500;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transitionDuration;
+    pointer-events: auto;
+
+    &:hover {
+      background-color: $orange-500;
+      color: white;
+      border-color: $orange-500;
+    }
+
+    svg {
+      pointer-events: none; // Щоб клік не "застрягав" в іконці
+    }
+  }
+}
+
+.avatar {
+  // .avatar__name
+  &__name {
+    color: $black-500;
+    font-weight: 600;
+    @include fluid-text(16, 14);
+  }
+
+  // .avatar__desc
+  &__desc {
+    color: $black-400;
+    @include fluid-text(14, 10);
+  }
+}
+
+.swiper-pagination-current {
+  @include fluid-text(24, 16);
+  color: $black-500;
+}
+.swiper-pagination-total {
+  color: $black-400;
+  @include fluid-text(16, 10);
+}
