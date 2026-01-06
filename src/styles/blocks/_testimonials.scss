@@ -6,13 +6,6 @@
     margin-bottom: rem(20);
   }
 
-  &__subtitle {
-    @include fluid-text(40, 24);
-    color: $black-500;
-    font-weight: 600;
-    margin-bottom: rem(16);
-  }
-
   @include media-down($bp-tablet) {
     &__title {
       text-align: center;
@@ -26,6 +19,7 @@
   &__slider {
     position: relative;
     z-index: 1;
+    margin-bottom: rem(100);
   }
 
   &__slider-thumb {
@@ -203,6 +197,115 @@
 
     svg {
       pointer-events: none; // Щоб клік не "застрягав" в іконці
+    }
+  }
+
+  // .testimonials__form
+  &__form {
+    padding: rem(80) rem(50);
+    background-color: $orange-400;
+    border-radius: $borderRadius-24;
+
+    @include media-down($bp-tablet) {
+      padding: rem(40) rem(24);
+    }
+  }
+
+  // .testimonials__form-text
+  &__form-text {
+    margin-bottom: rem(56);
+  }
+
+  @include media-down($bp-tablet) {
+    &__form-subtitle,
+    &__form-text {
+      text-align: center;
+    }
+  }
+
+  // .testimonials__form-request
+  &__form-request {
+    display: flex;
+    align-items: flex-start;
+    gap: rem(64);
+  }
+
+  @include media-down(992) {
+    &__form-request {
+      flex-direction: column;
+      align-items: stretch;
+      gap: rem(50);
+    }
+  }
+
+  @include media-down($bp-tablet) {
+    &__form-text {
+      margin-bottom: rem(40);
+    }
+    &__form-request {
+      gap: rem(40);
+    }
+  }
+
+  .form {
+    // .form__request
+    &__request {
+      flex: 0 1 rem(645);
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+    // .form__request-input
+    &__request-input {
+      margin-bottom: rem(24);
+      input {
+        width: 100%;
+        padding: rem(16) rem(24);
+        border-radius: $borderRadius-8;
+        @include fluid-text(16, 12);
+      }
+    }
+
+    @include media-down($bp-mobile-l) {
+      &__request-input {
+        margin-bottom: rem(16);
+        input {
+          padding: rem(16);
+        }
+      }
+    }
+
+    // .form__request-btn
+    &__request-btn {
+      align-self: flex-end;
+    }
+
+    // .form__image
+    &__image {
+      flex: 0 1 auto;
+      margin-top: rem(25);
+    }
+
+    @include media-down(992) {
+      &__request {
+        flex: 1 1 auto;
+        width: 100%;
+        order: 2;
+      }
+
+      &__request-btn {
+        align-self: center;
+      }
+
+      &__image {
+        order: 1;
+        text-align: center;
+        margin-top: rem(0);
+      }
     }
   }
 }
