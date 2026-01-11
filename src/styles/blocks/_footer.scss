@@ -168,9 +168,6 @@
 
   // .form__policy
   &__policy {
-    // display: flex;
-    // align-items: flex-start;
-    // gap: rem(12);
     margin-top: rem(24);
 
     &-inputCheck {
@@ -196,7 +193,6 @@
       min-height: rem(28); // Щоб висота рядка була не менша за чекбокс
 
       a {
-        // color: $white;
         text-decoration: underline;
         &:hover {
           text-decoration: none;
@@ -211,7 +207,6 @@
         // Центруємо 28px бокс відносно тексту
         top: calc((1.4em - rem(28)) / 2);
         @include size(rem(28));
-        // background-color: #1e1e1e;
         border: 1px solid $white;
         border-radius: $borderRadius-8;
         transition:
