@@ -4,9 +4,6 @@
 .footer {
   background-color: $black-500;
   padding-top: 50px;
-  // .footer__body
-  &__body {
-  }
 
   // .footer__subscribe
   &__subscribe {
@@ -14,7 +11,7 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: clamp(rem(20), 4vw, rem(82));
-    margin-bottom: rem(160);
+    margin-bottom: clamp(rem(40), 10vw, rem(80));
   }
 
   // .footer__subscribe-title
@@ -32,17 +29,46 @@
     flex: 0 1 rem(564);
   }
 
+  @include media-down(830) {
+    &__subscribe {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: rem(32);
+    }
+    &__subscribe-title {
+      text-align: center;
+      flex: 0 1 auto;
+    }
+    &__subscribe-form {
+      flex: 0 1 auto;
+    }
+  }
+
   // .footer__menu
   &__menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: clamp(rem(30), 5vw, rem(80));
     margin-bottom: rem(88);
+
+    @include media-down($bp-tablet) {
+      flex-direction: column; // На планшетах лого зверху, меню знизу
+      gap: rem(40);
+      margin-bottom: rem(40);
+    }
   }
 
   // .footer__menu-bizzier
   &__menu-bizzier {
-    flex: 0 1 rem(405);
+    flex: 0 1 rem(400);
+
+    @include media-down($bp-tablet) {
+      flex: 0 1 auto;
+      margin-bottom: rem(20);
+    }
   }
 
   // .footer__bizzier-title
@@ -56,6 +82,13 @@
       @include fluid-text(40, 32);
       font-weight: 600;
       line-height: 52px;
+      margin: 0;
+    }
+
+    @include media-down($bp-tablet) {
+      display: flex;
+      align-items: center;
+      gap: rem(12);
     }
   }
 
@@ -73,6 +106,7 @@
 
   // .footer__copy
   &__copy {
+    @include fluid-text(16, 14);
     color: $orange-400;
   }
 }
@@ -85,24 +119,58 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 10px 10px 24px;
-    max-height: rem(74);
+    min-height: rem(74);
     background-color: $white;
     border-radius: $borderRadius-8;
+
+    @include media-down($bp-mobile-l) {
+      // Для мобільних екранів
+      flex-direction: column;
+      padding: rem(10);
+      gap: rem(12);
+      background-color: transparent; // Робимо фон прозорим, щоб рознести елементи
+
+      .form__subscribe-inputText {
+        width: 100%;
+        background-color: $white;
+        padding: rem(16) rem(20);
+        border-radius: $borderRadius-8;
+        margin-right: 0; // Прибираємо правий margin
+      }
+
+      .form__subscribe-btn {
+        width: 100%; // Кнопка на всю ширину
+      }
+    }
+    @include media-down(360) {
+      padding: rem(6) rem(6) rem(6) rem(12); // Екстремально зменшуємо паддінги
+    }
   }
 
   // .form__subscribe-inputText
   &__subscribe-inputText {
+    flex: 1 1 auto;
+    min-width: 0; // Дозволяє інпуту стискатися менше за його дефолтний розмір
+    border: none;
+    outline: none;
+    background: transparent;
+    @include fluid-text(16, 14);
   }
 
   // .form__subscribe-btn
   &__subscribe-btn {
+    @include media-down(340) {
+      padding-left: rem(12);
+      padding-right: rem(12);
+      font-size: 12px; // Трохи зменшуємо текст на критично малих екранах
+    }
   }
 
   // .form__policy
   &__policy {
-    display: flex;
-    align-items: flex-start;
-    gap: rem(12);
+    // display: flex;
+    // align-items: flex-start;
+    // gap: rem(12);
     margin-top: rem(24);
 
     &-inputCheck {
@@ -115,6 +183,9 @@
 
     label {
       position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: rem(12);
       // Збільшуємо відступ: 28px (бокс) + 12px (зазор) = 40px
       padding-left: rem(40);
       cursor: pointer;
@@ -146,6 +217,10 @@
         transition:
           border-color 0.3s ease,
           background-color 0.3s ease;
+
+        @include media-down($bp-mobile-s) {
+          top: 5px;
+        }
       }
 
       // Пташка (трохи збільшена для пропорційності)
@@ -196,53 +271,73 @@
   // .menu__footer
   &__footer {
     flex: 0 1 rem(564);
+
+    @include media-down($bp-tablet) {
+      flex: 0 1 auto;
+    }
   }
 
   // .menu__footer-body
   &__footer-body {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: rem(106);
+    display: grid;
+    // Десктоп: 3 колонки автоматичної ширини
+    grid-template-columns: repeat(3, auto);
+    gap: rem(20) clamp(rem(20), 5vw, rem(110));
 
-    li {
-      color: $orange-400;
-      &:not(:last-child) {
-        margin-bottom: rem(16);
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: rem(16);
+    }
+
+    @include media-down($bp-tablet) {
+      grid-template-columns: 1fr 1fr;
+      gap: rem(40) rem(160);
+
+      // Перші два списки займають свої клітинки (по 50% ряду)
+      .menu__footer-list,
+      .menu__soc1als-list {
+        justify-self: center; // Центруємо самі списки в їх колонках
+        text-align: center;
+      }
+
+      // ТРЕТІЙ БЛОК (Контакти) на весь рядок
+      .menu__contacts-list {
+        grid-column: span 2; // Розтягуємо на 2 колонки
+        justify-self: center; // Центруємо весь блок контактів
+        width: max-content;
+        align-items: flex-start; // Центруємо контент всередині (іконки + текст)
+
+        .menu__contacts-item {
+          justify-content: center;
+        }
       }
     }
 
     a {
       @include fluid-text(16, 14);
+      color: $orange-400;
+      position: relative;
+      text-decoration: none;
+      display: inline-block; // Щоб лінія була рівною ширині тексту
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: rem(-2);
+        width: 0;
+        height: rem(1); // Робимо лінію трохи тоншою
+        background-color: $orange-500;
+        transition: width 0.3s ease-in-out;
+      }
+
+      @include hover-only-desktop {
+        &::after {
+          width: 100%;
+        }
+      }
     }
-  }
-
-  // .menu__footer-list
-  &__footer-list {
-  }
-
-  // .menu__footer-item
-  &__footer-item {
-  }
-
-  // .menu__footer-link
-  &__footer-link {
-  }
-
-  // .menu__soc1als
-  &__soc1als-list {
-  }
-
-  // .menu__soc1als-item
-  &__soc1als-item {
-  }
-
-  // .menu__soc1als-link
-  &__soc1als-link {
-  }
-
-  // .menu__contacts
-  &__contacts-list {
   }
 
   // .menu__contacts-item
@@ -250,9 +345,38 @@
     display: flex;
     align-items: center;
     gap: rem(16);
+
+    svg {
+      flex-shrink: 0; // Забороняємо іконці стискатися
+    }
+
+    svg path {
+      fill: $white;
+    }
+
+    a {
+      @include fluid-text(16, 14);
+      color: $white;
+      white-space: nowrap; // Щоб номер телефону не розривався
+    }
+  }
+}
+
+.footer__line-top {
+  margin-bottom: rem(80);
+
+  @include media-down($bp-tablet) {
+    margin-bottom: (rem(40));
   }
 
-  // .menu__contacts-link
-  &__contacts-link {
+  @include media-down($bp-mobile-l) {
+    margin-bottom: (rem(30));
   }
+}
+
+.footer__line-top,
+.footer__line-bottom {
+  width: 100%;
+  height: 1px;
+  background-color: $orange-400;
 }
