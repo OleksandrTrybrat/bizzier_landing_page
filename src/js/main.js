@@ -4,6 +4,7 @@ import { BurgerMenu } from './burgerMenu.js';
 import { HeaderBlur } from './headerBlur.js';
 import { CardPagination } from './pagination.js';
 import { initTestimonialsSlider } from './slider.js';
+import { Accordion } from './accordion.js';
 
 // Ініціалізація після завантаження DOM
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     '[data-control="next"]', // Селектор кнопки "Вперед"
     '.page__number',
   );
+  // Запускаємо акордеон, передаючи селектор контейнера
+  new Accordion('.faq__accordion');
 
   // 2. Викликаємо ініціалізацію слайдера
   initTestimonialsSlider();
