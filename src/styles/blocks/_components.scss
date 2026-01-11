@@ -10,7 +10,7 @@
   padding: rem(16) rem(24);
   border-radius: $borderRadius-8;
   line-height: 1.3;
-  transition: $transitionDuration;
+  transition: all $transitionDuration;
 }
 
 .btn-transparent {
@@ -21,13 +21,14 @@
   @include hover-only-desktop {
     background-color: $orange-500;
     color: $white;
-    border: none;
+    border-color: transparent;
   }
 }
 
 .btn.btn-orange {
   background-color: $orange-500;
   color: $white;
+  border: rem(0.5) solid $orange-500;
 
   @include hover-only-desktop {
     background-color: $white;

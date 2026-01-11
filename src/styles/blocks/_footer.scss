@@ -1,0 +1,258 @@
+@use '../helpers' as *;
+@use '../variables' as *;
+
+.footer {
+  background-color: $black-500;
+  padding-top: 50px;
+  // .footer__body
+  &__body {
+  }
+
+  // .footer__subscribe
+  &__subscribe {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: clamp(rem(20), 4vw, rem(82));
+    margin-bottom: rem(160);
+  }
+
+  // .footer__subscribe-title
+  &__subscribe-title {
+    flex: 0 1 rem(690);
+    h2 {
+      color: $orange-400;
+      @include fluid-text(40, 20);
+      line-height: 1.3;
+    }
+  }
+
+  // .footer__subscribe-form
+  &__subscribe-form {
+    flex: 0 1 rem(564);
+  }
+
+  // .footer__menu
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rem(88);
+  }
+
+  // .footer__menu-bizzier
+  &__menu-bizzier {
+    flex: 0 1 rem(405);
+  }
+
+  // .footer__bizzier-title
+  &__bizzier-title {
+    img {
+      margin-bottom: rem(12);
+    }
+
+    h2 {
+      color: $white;
+      @include fluid-text(40, 32);
+      font-weight: 600;
+      line-height: 52px;
+    }
+  }
+
+  // .footer__bizzier-text
+  &__bizzier-text {
+    color: $orange-400;
+    @include fluid-text(16, 14);
+  }
+
+  // .footer__bottom
+  &__bottom {
+    text-align: center;
+    padding: rem(24) 0;
+  }
+
+  // .footer__copy
+  &__copy {
+    color: $orange-400;
+  }
+}
+
+.form {
+  width: 100%;
+  // .form__subscribe
+  &__subscribe {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 24px;
+    max-height: rem(74);
+    background-color: $white;
+    border-radius: $borderRadius-8;
+  }
+
+  // .form__subscribe-inputText
+  &__subscribe-inputText {
+  }
+
+  // .form__subscribe-btn
+  &__subscribe-btn {
+  }
+
+  // .form__policy
+  &__policy {
+    display: flex;
+    align-items: flex-start;
+    gap: rem(12);
+    margin-top: rem(24);
+
+    &-inputCheck {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    label {
+      position: relative;
+      // Збільшуємо відступ: 28px (бокс) + 12px (зазор) = 40px
+      padding-left: rem(40);
+      cursor: pointer;
+      font-size: rem(14);
+      line-height: 1.4; // 1.4em ≈ 19.6px
+      color: $white;
+      display: inline-block;
+      min-height: rem(28); // Щоб висота рядка була не менша за чекбокс
+
+      a {
+        // color: $white;
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      // Квадрат 28x28
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        // Центруємо 28px бокс відносно тексту
+        top: calc((1.4em - rem(28)) / 2);
+        @include size(rem(28));
+        // background-color: #1e1e1e;
+        border: 1px solid $white;
+        border-radius: $borderRadius-8;
+        transition:
+          border-color 0.3s ease,
+          background-color 0.3s ease;
+      }
+
+      // Пташка (трохи збільшена для пропорційності)
+      &::after {
+        content: '';
+        position: absolute;
+        // Центр квадрата 28/2 = 14px
+        left: rem(14);
+        top: calc((1.4em - rem(28)) / 2 + rem(14));
+
+        // Розмір самої пташки зробимо ~16px
+        width: rem(16);
+        height: rem(12);
+
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L4.5 8.5L11 1.5' stroke='%23FF7E21' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+    }
+
+    // Стан Checked
+    &-inputCheck:checked + label {
+      &::before {
+        border-color: $orange-400;
+      }
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    // Фокус для клавіатури
+    &-inputCheck:focus-visible + label::before {
+      outline: 2px solid $orange-400;
+      outline-offset: 3px;
+    }
+  }
+}
+
+.menu {
+  // .menu__footer
+  &__footer {
+    flex: 0 1 rem(564);
+  }
+
+  // .menu__footer-body
+  &__footer-body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: rem(106);
+
+    li {
+      color: $orange-400;
+      &:not(:last-child) {
+        margin-bottom: rem(16);
+      }
+    }
+
+    a {
+      @include fluid-text(16, 14);
+    }
+  }
+
+  // .menu__footer-list
+  &__footer-list {
+  }
+
+  // .menu__footer-item
+  &__footer-item {
+  }
+
+  // .menu__footer-link
+  &__footer-link {
+  }
+
+  // .menu__soc1als
+  &__soc1als-list {
+  }
+
+  // .menu__soc1als-item
+  &__soc1als-item {
+  }
+
+  // .menu__soc1als-link
+  &__soc1als-link {
+  }
+
+  // .menu__contacts
+  &__contacts-list {
+  }
+
+  // .menu__contacts-item
+  &__contacts-item {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+  }
+
+  // .menu__contacts-link
+  &__contacts-link {
+  }
+}
