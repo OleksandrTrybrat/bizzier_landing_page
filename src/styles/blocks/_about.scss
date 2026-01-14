@@ -46,16 +46,19 @@
       top: -50px;
       right: 40px;
     }
+
     .bottom__right {
       height: 250px;
       bottom: -220px;
       right: 25px;
     }
   }
+
   @include media-down(1144) {
     &__header {
       margin-bottom: rem(100);
     }
+
     &__images {
       display: none;
     }
@@ -69,6 +72,7 @@
     @include media-down(1144) {
       margin-bottom: rem(100);
     }
+
     @include media-down($bp-laptop) {
       margin-bottom: rem(70);
     }
@@ -90,9 +94,11 @@
   // .about__text
   &__text {
     @include fluid-text(18, 14);
+
     max-width: rem(865);
     margin: 0 auto;
   }
+
   &__sponsor {
     background-color: $orange-400;
 

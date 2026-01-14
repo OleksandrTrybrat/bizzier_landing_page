@@ -15,7 +15,7 @@ $bp-mobile-s: 321;
 
 // Підхід "Desktop First": Стилі застосовуються для екранів ДО вказаного розміру (включно)
 @mixin media-down($breakpoint) {
-  @media (max-width: calc(#{$breakpoint}px - 0.02px)) {
+  @media (width <= calc(#{$breakpoint}px - 0.02px)) {
     @content;
   }
 }

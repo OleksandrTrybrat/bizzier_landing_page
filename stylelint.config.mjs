@@ -11,4 +11,4 @@ export default {
     'declaration-property-value-no-unknown': null,
     'selector-class-pattern': null,
   },
-}
+};

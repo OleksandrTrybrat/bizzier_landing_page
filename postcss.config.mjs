@@ -1,4 +1,4 @@
-import cssnano from 'cssnano'
+import cssnano from 'cssnano';
 
 export default {
   syntax: 'postcss-scss',
@@ -7,4 +7,4 @@ export default {
       preset: 'default',
     }),
   ],
-}
+};

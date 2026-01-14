@@ -52,6 +52,7 @@ html {
   font-size: 16px;
 
   // font-size: 62.5%; // 1rem = 10px, якщо потрібно спростити обчислення
+
   /* Плавне прокручування */
   // scroll-behavior: smooth;scroll-behavior
 
@@ -69,9 +70,11 @@ body {
   -webkit-font-smoothing: antialiased; /* Покращує відображення шрифтів у Chrome/Safari */
 
   /* ! Забороняє самовільне збільшення шрифту на iPhone */
+
   /* -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; */
+
   /* Забороняє самовільне збільшення шрифту на iPhone */
 }
 
@@ -109,8 +112,8 @@ button {
     &::before {
       @include abs-center;
       @include size(rem(44));
-      z-index: 999;
 
+      z-index: 999;
       content: '';
     }
   }

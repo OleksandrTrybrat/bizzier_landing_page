@@ -24,7 +24,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: rem(40) rem(40);
+    gap: rem(40);
   }
 
   // .services__card
@@ -39,10 +39,12 @@
 
     @include hover-only-desktop {
       background-color: $purple-400;
+
       &__card-link {
         color: $white;
         background: $purple-600;
       }
+
       .btn-purple {
         color: $white;
         background: $purple-600;
@@ -78,8 +80,9 @@
 
   @include media-down($bp-laptop) {
     &__cards {
-      gap: rem(28) rem(28);
+      gap: rem(28);
     }
+
     &__card {
       gap: rem(32);
       padding: rem(24);
@@ -91,9 +94,11 @@
       grid-template-columns: repeat(1, 1fr);
       grid-template-rows: repeat(auto-fit, 1fr);
     }
+
     &__card {
       justify-content: space-around;
     }
+
     &__card-image {
       flex: 0 1 auto;
     }
@@ -103,9 +108,10 @@
       flex: 0 1 auto;
     }
   }
+
   @include media-down($bp-mobile-l) {
     &__cards {
-      gap: rem(18) rem(18);
+      gap: rem(18);
     }
 
     &__card {
@@ -133,8 +139,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: rem(28) rem(24) rem(16) rem(24);
+      padding: rem(28) rem(24) rem(16);
     }
+
     &__text {
       margin-bottom: rem(30);
     }

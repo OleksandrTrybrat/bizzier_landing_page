@@ -11,6 +11,7 @@
       text-align: center;
       margin-bottom: rem(0);
     }
+
     &__subtitle {
       margin-bottom: rem(12);
     }
@@ -72,6 +73,7 @@
       top: 100%;
       right: calc(50% - 40px);
     }
+
     &__right-bottom {
       order: 1;
       position: absolute;
@@ -79,6 +81,7 @@
       right: 0;
     }
   }
+
   @include media-down($bp-tablet) {
     &__left-top {
       text-align: center;
@@ -89,6 +92,7 @@
     &__left-bottom {
       right: 35%;
     }
+
     &__right-bottom {
       top: 84%;
     }
@@ -96,12 +100,15 @@
 
   &__text {
     color: $black-400;
+
     @include fluid-text(16, 14);
   }
 
   &__desc {
     color: $black-500;
+
     @include fluid-text(24, 15);
+
     margin-bottom: rem(40);
     text-align: justify;
 
@@ -113,13 +120,16 @@
   &__numbers-avatar {
     display: flex;
     align-items: center;
+
     img {
       @include size(rem(52));
+
       margin-right: rem(28);
       border-radius: 50%;
 
       @include media-down($bp-mobile-l) {
         @include size(rem(38));
+
         margin-right: rem(16);
       }
     }
@@ -179,6 +189,7 @@
 
   .arrow__pagination {
     @include size(rem(40));
+
     border: 1px solid $black-500;
     border-radius: 50%;
     background: transparent;
@@ -242,6 +253,7 @@
     &__form-text {
       margin-bottom: rem(40);
     }
+
     &__form-request {
       gap: rem(40);
     }
@@ -262,10 +274,12 @@
     // .form__request-input
     &__request-input {
       margin-bottom: rem(24);
+
       input {
         width: 100%;
         padding: rem(16) rem(24);
         border-radius: $borderRadius-8;
+
         @include fluid-text(16, 12);
       }
     }
@@ -273,6 +287,7 @@
     @include media-down($bp-mobile-l) {
       &__request-input {
         margin-bottom: rem(16);
+
         input {
           padding: rem(16);
         }
@@ -315,21 +330,26 @@
   &__name {
     color: $black-500;
     font-weight: 600;
+
     @include fluid-text(16, 14);
   }
 
   // .avatar__desc
   &__desc {
     color: $black-400;
+
     @include fluid-text(14, 10);
   }
 }
 
 .swiper-pagination-current {
   @include fluid-text(24, 16);
+
   color: $black-500;
 }
+
 .swiper-pagination-total {
   color: $black-400;
+
   @include fluid-text(16, 10);
 }

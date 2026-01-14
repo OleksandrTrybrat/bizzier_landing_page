@@ -4,7 +4,9 @@
 @function rem($pixel) {
   @if math.is-unitless($pixel) {
     @return math.div($pixel, 16) + rem;
-  } @else {
+  }
+
+ @else {
     @error 'Не використовуйте одиниці виміру при роботі з функцією rem()! Передавайте аргументом тільки числа.';
   }
 }

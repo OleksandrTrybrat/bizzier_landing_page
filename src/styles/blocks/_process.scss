@@ -11,8 +11,8 @@
     justify-content: space-between;
     gap: clamp(rem(32), 4vw, rem(100));
   }
+
   &__line {
-    width: 100%;
     position: absolute;
     top: 25%;
     left: 50%;
@@ -50,11 +50,13 @@
       display: none;
     }
   }
+
   @include media-down($bp-mobile-l) {
     &__card {
       margin-bottom: rem(10);
     }
   }
+
   @include media-down($bp-mobile-s) {
     &__card {
       gap: rem(10);
@@ -90,12 +92,14 @@
     &__image {
       padding: rem(0) rem(12);
     }
+
     &__desc {
       display: flex;
       flex-direction: column;
       width: 100%;
     }
   }
+
   @include media-down($bp-mobile-l) {
     &__title {
       margin-bottom: rem(8);
@@ -106,6 +110,7 @@
 .title__card-process {
   // @include fluid-text(20, 18);
   font-size: rem(18);
+
   h3 {
     color: $black-500;
     font-weight: 600;

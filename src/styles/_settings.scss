@@ -23,6 +23,7 @@ body {
     @include media-down($bp-tablet) {
       margin-top: 75px;
     }
+
     @include media-down($bp-mobile-s) {
       margin-top: 65px;
     }
