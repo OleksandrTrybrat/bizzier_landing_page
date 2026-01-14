@@ -1,9 +1,0 @@
-  "scripts": {
-    "lint:js": "eslint .",                                          // старт без автовиправлень
-    "lint:js:fix": "eslint . --fix",                                // старт з виправленням всього що зможе
-    "lint:css": "stylelint \"**/*.css\"",                           // просто перевірка без якихось фіксів
-    "lint:css:fix": "stylelint \"**/*.css\" --fix",                 // з виправленням стилів
-    "format": "prettier . --write",                                 // старт прітієра
-    "lint": "npm run lint:js ; npm run lint:css",                   // повна перевірка всіх файлів js та css
-    "lint:fix": "npm run lint:js:fix ; npm run lint:css:fix ; npm run format",  // старт всього одразу
-  },
