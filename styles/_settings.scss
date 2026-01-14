@@ -1,0 +1,58 @@
+@use 'variables' as *;
+@use './helpers' as *;
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: $black-400;
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: $baseFontSize;
+}
+
+.wrapper {
+  overflow: hidden;
+  display: flex; /* потрібен код, щоб надалі можна було прикріпити футер донизу */
+  flex-direction: column; /* потрібен код, щоб надалі можна було прикріпити футер донизу */
+  min-height: 100%; /* обгортка займатиме щонайменше всю висоту вікна браузера */
+  // background-color: $colorBackgroundPage;
+
+  > .main {
+    flex: 1 1 auto; /* притискає футер донизу */
+    margin-top: 97px;
+
+    @include media-down($bp-tablet) {
+      margin-top: 75px;
+    }
+
+    @include media-down($bp-mobile-s) {
+      margin-top: 65px;
+    }
+  }
+}
+
+section {
+  margin-bottom: rem(160);
+
+  @include media-down($bp-laptop) {
+    margin-bottom: rem(100);
+  }
+
+  @include media-down($bp-mobile-l) {
+    margin-bottom: rem(50);
+  }
+}
+
+// .main {
+//   flex: 1 1 auto;flex /* притискає футер донизу */
+// }
+
+[class*='__container'] {
+  /* селектор атрибута */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px; /* (відступи безпеки, щоб вміст не притискався до країв сторінки); при додаванні відступу в 15px у min-width додаємо 30px, і значення буде не 1250px, а 1280px */
+}
+
+[class*='__header'] {
+  text-align: center;
+}

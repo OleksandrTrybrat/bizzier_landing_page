@@ -1,0 +1,29 @@
+@use 'helpers' as *;
+
+$containerWidth: 1340px;
+$containerPaddingX: 15px;
+
+// Базовий розмір шрифту
+$baseFontSize: rem(16);
+$fontSizeSmallText: rem(18);
+$fontSizeSubTitle: rem(24);
+$fontSizeTitle: rem(40);
+
+// COLOR
+// primary
+$orange-400: #fff4f2;
+$orange-500: #f44817;
+$purple-600: #4f54c8;
+$purple-400: #edefff;
+$purple-500: #b8bbfd;
+// neutral
+$black-300: #aaa;
+$black-400: #656565;
+$black-500: #222;
+$white: #fff;
+
+$borderRadius-8: rem(8);
+$borderRadius-16: rem(16);
+$borderRadius-24: rem(24);
+
+$transitionDuration: 0.3s;

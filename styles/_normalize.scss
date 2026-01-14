@@ -1,0 +1,224 @@
+@use 'helpers' as *;
+
+/* =======================RESET====================== */
+
+/* Нормалізація блочної моделі */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* Нормалізація висоти елемента посилання при його інспектуванні в DevTools */
+a:where([class]) {
+  display: inline-flex;
+}
+
+a,
+a:visited {
+  color: inherit; /* Успадковує колір тексту */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Змінює підрахунок ширини блоку для спрощення обчислення розмірів */
+:focus,
+:active,
+a:focus,
+a:active {
+  outline: none;
+}
+// ! ?
+:focus-visible {
+  // outline: 3px solid var(--color-focus, #3b82f6); /* Задаємо чіткий індикатор фокусу */
+  outline-offset: 2px;
+}
+
+/* Видаляємо outline лише у разі наявності альтернативи */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+// ! ?
+
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+  font-size: 16px;
+
+  // font-size: 62.5%; // 1rem = 10px, якщо потрібно спростити обчислення
+
+  /* Плавне прокручування */
+  // scroll-behavior: smooth;scroll-behavior
+
+  :has(:target) {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-font-smoothing: antialiased; /* Покращує відображення шрифтів у Chrome/Safari */
+
+  /* ! Забороняє самовільне збільшення шрифту на iPhone */
+
+  /* -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; */
+
+  /* Забороняє самовільне збільшення шрифту на iPhone */
+}
+
+/* Успадковуємо властивості шрифту для полів введення */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  font-family: inherit;
+}
+
+button,
+input::-ms-clear {
+  border: 0;
+  padding: 0;
+  display: none;
+} /* Прибирає хрестик у полі вводу в Microsoft IE */
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+} /* Прибирає відступи у кнопок у Mozilla */
+
+// Стилі для аксесабіліті кнопки бургер
+a,
+button {
+  &[aria-label] {
+    position: relative;
+
+    &::before {
+      @include abs-center;
+      @include size(rem(44));
+
+      z-index: 999;
+      content: '';
+    }
+  }
+}
+
+ul li {
+  list-style: none;
+}
+
+img,
+svg,
+picture,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+  /* vertical-align: top; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/* Прибираємо внутрішні відступи зліва для тегів списків, які мають атрибут class */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/* Прибираємо зовнішні відступи для body та двох інших тегів, які мають атрибут class */
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/* Прибираємо зовнішні вертикальні відступи у потрібних тегів, які мають атрибут class */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Прибираємо стандартний маркер у маркованого списку, який має атрибут class */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/* Обнуляємо вертикальні зовнішні відступи параграфа */
+p {
+  // --paragraphMarginBottom: 24px;--paragraphMarginBottom
+  margin-block: 0;
+}
+
+/* Зовнішній відступ вниз для параграфа без атрибута class */
+// p:where(:not([class]):not(:last-child)) {
+//   margin-bottom: var(--paragraphMarginBottom);margin-bottom
+// }
+
+/* Курсор-рука при наведенні на елемент */
+button,
+label {
+  cursor: pointer;
+}
+
+/* Приводимо до одного кольору svg-елементи */
+[fill] {
+  fill: currentcolor;
+}
+
+[stroke] {
+  stroke: currentcolor;
+}
+
+/* Виправляємо баг із затримкою зміни кольору при взаємодії з svg-елементами */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/* Видаляємо всі анімації та переходи для людей, які віддають перевагу їх не використовувати */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =============================/RESET=================================== */

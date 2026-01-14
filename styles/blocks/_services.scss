@@ -1,0 +1,149 @@
+@use '../helpers' as *;
+@use '../utils' as *;
+@use '../variables' as *;
+
+.services {
+  // .services__subtitle
+  &__subtitle {
+    display: inline-block;
+    margin-bottom: rem(20);
+  }
+
+  // .services__title
+  &__title {
+    margin-bottom: rem(16);
+  }
+
+  // .services__text
+  // &__text {
+  //   // margin-bottom: rem(56);
+  // }
+
+  // .services__cards
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: rem(40);
+  }
+
+  // .services__card
+  &__card {
+    display: flex;
+    align-items: flex-start;
+    gap: rem(40);
+    padding: rem(32);
+    border-radius: $borderRadius-16;
+    background-color: $orange-400;
+    transition: $transitionDuration;
+
+    @include hover-only-desktop {
+      background-color: $purple-400;
+
+      &__card-link {
+        color: $white;
+        background: $purple-600;
+      }
+
+      .btn-purple {
+        color: $white;
+        background: $purple-600;
+        border: none;
+      }
+    }
+  }
+
+  // .services__card-image
+  &__card-image {
+    flex: 0 1 rem(245);
+  }
+
+  // .services__card-desc
+  &__card-desc {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 0 1 rem(300);
+  }
+
+  // .services__card-title
+  &__card-title {
+    font-weight: 600;
+    margin-bottom: rem(12);
+  }
+
+  // .services__card-link
+  &__card-link {
+    margin-top: auto;
+    align-self: flex-end;
+  }
+
+  @include media-down($bp-laptop) {
+    &__cards {
+      gap: rem(28);
+    }
+
+    &__card {
+      gap: rem(32);
+      padding: rem(24);
+    }
+  }
+
+  @include media-down(929) {
+    &__cards {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(auto-fit, 1fr);
+    }
+
+    &__card {
+      justify-content: space-around;
+    }
+
+    &__card-image {
+      flex: 0 1 auto;
+    }
+    // .services__card-desc
+    &__card-desc {
+      height: 100%;
+      flex: 0 1 auto;
+    }
+  }
+
+  @include media-down($bp-mobile-l) {
+    &__cards {
+      gap: rem(18);
+    }
+
+    &__card {
+      @include hover-only-desktop {
+        .btn-purple {
+          color: $purple-600;
+          background: transparent;
+        }
+      }
+    }
+
+    .btn.btn-mobile {
+      padding: rem(12) rem(18);
+    }
+
+    .btn-mobile-transparent {
+      font-weight: 600;
+      color: $orange-500;
+      border: none;
+    }
+  }
+
+  @include media-down(397) {
+    &__card {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: rem(28) rem(24) rem(16);
+    }
+
+    &__text {
+      margin-bottom: rem(30);
+    }
+  }
+}

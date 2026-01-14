@@ -1,0 +1,80 @@
+@use 'sass:math';
+@use 'functions' as *;
+
+// Міксин адаптивного шрифту (Fluid Typography)
+// Автоматично змінює font-size між $max (великим) та $min (малим) значеннями
+@mixin fluid-text($max: 40, $min: 16) {
+  // Припускаємо, що функція fluid() обчислює значення для CSS-функції clamp()
+  font-size: fluid($max, $min);
+}
+
+// Міксин для задання розміру (квадрат або прямокутник)
+// Приймає один або два аргументи: @include size(100px, 50px);
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+// Примітка: Я зробив $height необов'язковим. Якщо передано лише $size1,
+// $height буде дорівнювати $width (тобто буде квадратом).
+
+// Центрування вмісту за допомогою Flexbox
+// За замовчуванням: display: flex. Якщо $isInline: true, буде display: inline-flex.
+@mixin flex-center($isInline: false) {
+  display: if(
+    $isInline,
+    inline-flex,
+    flex
+  ); // Використовуємо функцію if() для скорочення коду
+
+  justify-content: center;
+  align-items: center;
+}
+
+// Абсолютне центрування по обох осях (X та Y)
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+// Абсолютне центрування тільки по горизонталі (X)
+@mixin abs-x {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0; // Явно вказуємо 0 для вертикальної осі
+}
+
+// Абсолютне центрування тільки по вертикалі (Y)
+@mixin abs-y {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%; // Явно вказуємо 0 для горизонтальної осі
+}
+
+// Приховує елемент, запобігаючи клікам та фокусу (для плавного зникнення)
+@mixin hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+// Показує елемент (для плавної появи)
+@mixin show {
+  opacity: 1;
+  visibility: visible;
+}
+
+// Міксин для приховування елемента візуально, але залишаючи його доступним
+// для скрінрідерів та інших допоміжних технологій (ARIA).
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important; // альтернатива clip
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}

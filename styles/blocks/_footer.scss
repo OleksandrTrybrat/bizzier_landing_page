@@ -1,0 +1,391 @@
+@use '../helpers' as *;
+@use '../variables' as *;
+
+.footer {
+  background-color: $black-500;
+  padding-top: 50px;
+
+  // .footer__subscribe
+  &__subscribe {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: clamp(rem(20), 4vw, rem(82));
+    margin-bottom: clamp(rem(40), 10vw, rem(80));
+  }
+
+  // .footer__subscribe-title
+  &__subscribe-title {
+    flex: 0 1 rem(690);
+
+    h2 {
+      color: $orange-400;
+
+      @include fluid-text(40, 20);
+
+      line-height: 1.3;
+    }
+  }
+
+  // .footer__subscribe-form
+  &__subscribe-form {
+    flex: 0 1 rem(564);
+  }
+
+  @include media-down(830) {
+    &__subscribe {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: rem(32);
+    }
+
+    &__subscribe-title {
+      text-align: center;
+      flex: 0 1 auto;
+    }
+
+    &__subscribe-form {
+      flex: 0 1 auto;
+    }
+  }
+
+  // .footer__menu
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(rem(30), 5vw, rem(80));
+    margin-bottom: rem(88);
+
+    @include media-down($bp-tablet) {
+      flex-direction: column; // На планшетах лого зверху, меню знизу
+      gap: rem(40);
+      margin-bottom: rem(40);
+    }
+  }
+
+  // .footer__menu-bizzier
+  &__menu-bizzier {
+    flex: 0 1 rem(400);
+
+    @include media-down($bp-tablet) {
+      flex: 0 1 auto;
+      margin-bottom: rem(20);
+    }
+  }
+
+  // .footer__bizzier-title
+  &__bizzier-title {
+    img {
+      margin-bottom: rem(12);
+    }
+
+    h2 {
+      color: $white;
+
+      @include fluid-text(40, 32);
+
+      font-weight: 600;
+      line-height: 52px;
+      margin: 0;
+    }
+
+    @include media-down($bp-tablet) {
+      display: flex;
+      align-items: center;
+      gap: rem(12);
+    }
+  }
+
+  // .footer__bizzier-text
+  &__bizzier-text {
+    color: $orange-400;
+
+    @include fluid-text(16, 14);
+  }
+
+  // .footer__bottom
+  &__bottom {
+    text-align: center;
+    padding: rem(24) 0;
+  }
+
+  // .footer__copy
+  &__copy {
+    @include fluid-text(16, 14);
+
+    color: $orange-400;
+  }
+}
+
+.form {
+  width: 100%;
+  // .form__subscribe
+  &__subscribe {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 24px;
+    min-height: rem(74);
+    background-color: $white;
+    border-radius: $borderRadius-8;
+
+    @include media-down($bp-mobile-l) {
+      // Для мобільних екранів
+      flex-direction: column;
+      padding: rem(10);
+      gap: rem(12);
+      background-color: transparent; // Робимо фон прозорим, щоб рознести елементи
+
+      .form__subscribe-inputText {
+        width: 100%;
+        background-color: $white;
+        padding: rem(16) rem(20);
+        border-radius: $borderRadius-8;
+        margin-right: 0; // Прибираємо правий margin
+      }
+
+      .form__subscribe-btn {
+        width: 100%; // Кнопка на всю ширину
+      }
+    }
+
+    @include media-down(360) {
+      padding: rem(6) rem(6) rem(6) rem(12); // Екстремально зменшуємо паддінги
+    }
+  }
+
+  // .form__subscribe-inputText
+  &__subscribe-inputText {
+    flex: 1 1 auto;
+    min-width: 0; // Дозволяє інпуту стискатися менше за його дефолтний розмір
+    border: none;
+    outline: none;
+    background: transparent;
+
+    @include fluid-text(16, 14);
+  }
+
+  // .form__subscribe-btn
+  &__subscribe-btn {
+    @include media-down(340) {
+      padding-left: rem(12);
+      padding-right: rem(12);
+      font-size: 12px; // Трохи зменшуємо текст на критично малих екранах
+    }
+  }
+
+  // .form__policy
+  &__policy {
+    margin-top: rem(24);
+
+    &-inputCheck {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    label {
+      position: relative;
+      align-items: flex-start;
+      gap: rem(12);
+      // Збільшуємо відступ: 28px (бокс) + 12px (зазор) = 40px
+      padding-left: rem(40);
+      cursor: pointer;
+      font-size: rem(14);
+      line-height: 1.4; // 1.4em ≈ 19.6px
+      color: $white;
+      display: inline-block;
+      min-height: rem(28); // Щоб висота рядка була не менша за чекбокс
+
+      a {
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      // Квадрат 28x28
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        // Центруємо 28px бокс відносно тексту
+        top: calc((1.4em - rem(28)) / 2);
+
+        @include size(rem(28));
+
+        border: 1px solid $white;
+        border-radius: $borderRadius-8;
+        transition:
+          border-color 0.3s ease,
+          background-color 0.3s ease;
+
+        @include media-down($bp-mobile-s) {
+          top: 5px;
+        }
+      }
+
+      // Пташка (трохи збільшена для пропорційності)
+      &::after {
+        content: '';
+        position: absolute;
+        // Центр квадрата 28/2 = 14px
+        left: rem(14);
+        top: calc((1.4em - rem(28)) / 2 + rem(14));
+
+        // Розмір самої пташки зробимо ~16px
+        width: rem(16);
+        height: rem(12);
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L4.5 8.5L11 1.5' stroke='%23FF7E21' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+    }
+
+    // Стан Checked
+    &-inputCheck:checked + label {
+      &::before {
+        border-color: $orange-400;
+      }
+
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    // Фокус для клавіатури
+    &-inputCheck:focus-visible + label::before {
+      outline: 2px solid $orange-400;
+      outline-offset: 3px;
+    }
+  }
+}
+
+.menu {
+  // .menu__footer
+  &__footer {
+    flex: 0 1 rem(564);
+
+    @include media-down($bp-tablet) {
+      flex: 0 1 auto;
+    }
+  }
+
+  // .menu__footer-body
+  &__footer-body {
+    display: grid;
+    // Десктоп: 3 колонки автоматичної ширини
+    grid-template-columns: repeat(3, auto);
+    gap: rem(20) clamp(rem(20), 5vw, rem(110));
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: rem(16);
+    }
+
+    @include media-down($bp-tablet) {
+      grid-template-columns: 1fr 1fr;
+      gap: rem(40) rem(160);
+
+      // Перші два списки займають свої клітинки (по 50% ряду)
+      .menu__footer-list,
+      .menu__soc1als-list {
+        justify-self: center; // Центруємо самі списки в їх колонках
+        text-align: center;
+      }
+
+      // ТРЕТІЙ БЛОК (Контакти) на весь рядок
+      .menu__contacts-list {
+        grid-column: span 2; // Розтягуємо на 2 колонки
+        justify-self: center; // Центруємо весь блок контактів
+        width: max-content;
+        align-items: flex-start; // Центруємо контент всередині (іконки + текст)
+
+        .menu__contacts-item {
+          justify-content: center;
+        }
+      }
+    }
+
+    a {
+      @include fluid-text(16, 14);
+
+      color: $orange-400;
+      position: relative;
+      text-decoration: none;
+      display: inline-block; // Щоб лінія була рівною ширині тексту
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: rem(-2);
+        width: 0;
+        height: rem(1); // Робимо лінію трохи тоншою
+        background-color: $orange-500;
+        transition: width 0.3s ease-in-out;
+      }
+
+      @include hover-only-desktop {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // .menu__contacts-item
+  &__contacts-item {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+
+    svg {
+      flex-shrink: 0; // Забороняємо іконці стискатися
+    }
+
+    svg path {
+      fill: $white;
+    }
+
+    a {
+      @include fluid-text(16, 14);
+
+      color: $white;
+      white-space: nowrap; // Щоб номер телефону не розривався
+    }
+  }
+}
+
+.footer__line-top {
+  margin-bottom: rem(80);
+
+  @include media-down($bp-tablet) {
+    margin-bottom: (rem(40));
+  }
+
+  @include media-down($bp-mobile-l) {
+    margin-bottom: (rem(30));
+  }
+}
+
+.footer__line-top,
+.footer__line-bottom {
+  width: 100%;
+  height: 1px;
+  background-color: $orange-400;
+}

@@ -1,0 +1,164 @@
+@use '../helpers' as *;
+@use '../utils' as *;
+@use '../variables' as *;
+
+.partners {
+  margin-top: rem(36);
+
+  // .partners__body
+  &__body {
+    display: grid;
+    grid-template-columns: 0.87fr 0.91fr;
+    grid-template-rows: auto auto;
+    justify-content: space-between;
+    gap: clamp(rem(80), 14vw, rem(170)) // Vertical/Row Gap (200px -> 80px)
+      clamp(rem(40), 7vw, rem(100)); // Horizontal/Column Gap (100px -> 40px)
+  }
+
+  // .partners__connecting
+  &__connecting {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    width: auto;
+  }
+
+  // .partners__partnership
+  &__partnership {
+    display: flex;
+    align-items: center;
+    gap: rem(10);
+    width: 470px;
+    padding: rem(6) rem(16);
+    margin-bottom: rem(32);
+  }
+
+  // .partners__title
+  &__title {
+    color: $black-500;
+
+    @include fluid-text(58, 32);
+
+    line-height: 1.3;
+    margin-bottom: rem(16);
+  }
+
+  // .partners__text
+  &__text {
+    margin-bottom: rem(50);
+  }
+
+  // .partners__buttons
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: rem(24);
+    height: rem(53);
+  }
+
+  // .partners__buttons-link
+  &__buttons-link {
+    &:nth-child(1) {
+      width: 180px;
+    }
+  }
+
+  // .partners__progress
+  &__progress {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  &__progress-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .progress {
+    // .progress__item-number
+    &__item-number {
+      @include fluid-text(40, 20);
+
+      color: $black-500;
+      line-height: 1.3;
+    }
+
+    // .progress__item-text
+    &__item-text {
+      @include fluid-text(16, 10);
+    }
+  }
+
+  .number-weight {
+    font-weight: 600;
+  }
+  // .partners__banner
+  &__banner {
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
+    width: auto;
+  }
+
+  @include media-down($bp-laptop) {
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    &__connecting {
+      order: 1;
+      flex: 0 0 100%;
+    }
+
+    &__progress {
+      order: 3;
+      flex: 0 0 100%;
+    }
+
+    &__progress-box {
+      justify-content: space-around;
+    }
+
+    &__banner {
+      display: flex;
+      justify-content: center;
+      order: 2;
+    }
+  }
+
+  @include media-down(499) {
+    &__partnership {
+      width: 100%;
+    }
+  }
+
+  @include media-down(357) {
+    &__text {
+      margin-bottom: rem(40);
+    }
+
+    &__buttons {
+      flex-direction: column;
+      gap: rem(16);
+      height: rem(50);
+      margin-bottom: rem(60);
+    }
+
+    &__buttons-link {
+      justify-content: center;
+      width: 60%;
+
+      &:nth-child(1) {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@include media-down($bp-mobile-s) {
+  .partners {
+    margin-top: rem(16);
+  }
+}
